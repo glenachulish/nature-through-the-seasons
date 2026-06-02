@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    PREFIX-AWARE DEPLOYMENT
+    -----------------------
+    This app is served under a path prefix on the Pi (…ts.net/nature/), NOT at
+    the site root. The <base href="./"> below makes every relative URL on the
+    page resolve against the current directory, so "styles.css" becomes
+    "/nature/styles.css" automatically. NEVER use leading-slash paths
+    ("/styles.css") anywhere — they would break under the prefix. Keep all
+    asset and link URLs relative.
+  -->
+  <base href="./" />
+
+  <title>Nature Through the Seasons</title>
+  <meta name="description" content="A month-by-month companion to British wildlife — what to look for, where to find it, and the lore behind it." />
+
+  <!-- Fonts: Fraunces (characterful display serif) + Inter-free body via system stack tuned in CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">❧</span>
+        <span class="brand-text">
+          <span class="brand-title">Nature Through the Seasons</span>
+          <span class="brand-sub">A month-by-month field companion</span>
+        </span>
+      </div>
+      <div class="current-month" id="current-month-label" aria-live="polite">—</div>
+    </div>
+
+    <!-- ====================== MONTH NAVIGATOR ====================== -->
+    <nav class="month-nav" id="month-nav" aria-label="Select a month">
+      <!-- Month buttons are injected by app.js -->
+    </nav>
+  </header>
+
+  <!-- ========================== MAIN CONTENT ========================= -->
+  <main class="app-main">
+    <div id="app-content" class="app-content">
+      <!-- Category sections and species cards are injected by app.js -->
+    </div>
+  </main>
+
+  <!-- ============================ MODAL ============================= -->
+  <dialog id="species-modal" class="species-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Species detail injected by app.js -->
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>Inspired by Nick Baker's <em>British Wildlife: A Month-by-Month Guide</em> and the <em>Collins Bird Guide</em>.</p>
+  </footer>
+
+  <!-- Scripts: data first, then logic. Both relative. -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

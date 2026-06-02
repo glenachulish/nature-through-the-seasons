@@ -1,0 +1,419 @@
+/* =============================================================================
+   Nature Through the Seasons — styles.css
+   Aesthetic: editorial / organic field-journal. Warm paper ground, deep forest
+   ink, seasonal accent. Fraunces display serif paired with Spectral for body.
+   ========================================================================== */
+
+:root {
+  /* ---- Palette: earthy, layered ---- */
+  --paper:        #f4efe2;   /* warm off-white ground */
+  --paper-deep:   #ebe3d2;   /* slightly deeper panel */
+  --ink:          #21281f;   /* near-black forest ink */
+  --ink-soft:     #4a5443;   /* muted body text */
+  --forest:       #2f5d3a;   /* primary forest green */
+  --forest-deep:  #1f3f28;
+  --moss:         #6b7d4a;   /* olive/moss accent */
+  --bark:         #7a5a3a;   /* earthy brown */
+  --berry:        #9c3b2e;   /* sharp accent (rosehip/berry) */
+  --gold:         #c98a2b;   /* warm highlight (catkin/autumn) */
+  --line:         #cfc4ab;   /* hairline dividers on paper */
+
+  /* ---- Type ---- */
+  --display: "Fraunces", Georgia, serif;
+  --body:    "Spectral", Georgia, serif;
+
+  /* ---- Shape ---- */
+  --radius:   14px;
+  --radius-sm: 8px;
+  --shadow:   0 1px 2px rgba(33,40,31,.06), 0 8px 24px -12px rgba(33,40,31,.28);
+  --shadow-lg: 0 24px 60px -20px rgba(33,40,31,.45);
+
+  --maxw: 1120px;
+}
+
+/* ----------------------------------------------------------------- RESET */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: var(--ink);
+  background-color: var(--paper);
+  /* subtle paper grain via layered radial gradients — no external image */
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(123,90,58,.05) 0, transparent 38%),
+    radial-gradient(circle at 82% 72%, rgba(47,93,58,.06) 0, transparent 42%);
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------------------- HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper) 70%, rgba(244,239,226,.92) 100%);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+.brand-mark {
+  font-size: 1.9rem;
+  color: var(--forest);
+  line-height: 1;
+  transform: translateY(2px);
+}
+.brand-text { display: flex; flex-direction: column; min-width: 0; }
+.brand-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.6vw, 1.7rem);
+  color: var(--forest-deep);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+.brand-sub {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+.current-month {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1rem, 2.4vw, 1.45rem);
+  color: var(--berry);
+  white-space: nowrap;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+/* -------------------------------------------------------- MONTH NAVIGATOR */
+.month-nav {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0.35rem 0.75rem 0.7rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+}
+.month-nav::-webkit-scrollbar { height: 6px; }
+.month-nav::-webkit-scrollbar-thumb { background: var(--line); border-radius: 99px; }
+
+.month-btn {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 0.4rem 0.95rem;
+  cursor: pointer;
+  transition: color .18s, background .18s, border-color .18s, transform .12s;
+  white-space: nowrap;
+}
+.month-btn:hover {
+  color: var(--forest-deep);
+  background: var(--paper-deep);
+}
+.month-btn:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+.month-btn.active {
+  color: var(--paper);
+  background: var(--forest);
+  border-color: var(--forest-deep);
+  box-shadow: var(--shadow);
+}
+
+/* ------------------------------------------------------------ MAIN LAYOUT */
+.app-main { flex: 1 0 auto; }
+.app-content {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* staggered fade-in on month change */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------------- CATEGORY BLOCK */
+.category {
+  margin-bottom: 2.4rem;
+  animation: rise .5s ease both;
+}
+.category-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1.5px solid var(--line);
+}
+.category-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--forest-deep);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.category-count {
+  font-size: 0.8rem;
+  color: var(--moss);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------- CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.species-card {
+  position: relative;
+  text-align: left;
+  font-family: var(--body);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.05rem 1.1rem 1.1rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s;
+  width: 100%;
+}
+/* left accent stripe in seasonal green */
+.species-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--forest), var(--moss));
+  opacity: 0.85;
+}
+.species-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--moss);
+}
+.species-card:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+.species-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.18rem;
+  color: var(--ink);
+  margin: 0 0 0.2rem;
+  line-height: 1.15;
+}
+.species-action {
+  display: inline-block;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--berry);
+  margin-bottom: 0.5rem;
+}
+.card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--moss);
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.card-cta .ref-chips { display: flex; gap: 0.3rem; }
+.chip {
+  font-size: 0.68rem;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 0.05rem 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------- TOP PLACES SECTION */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+.place-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.place-item .pin { color: var(--berry); flex: 0 0 auto; }
+
+/* ---------------------------------------------------------------- MODAL */
+.species-modal {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 560px;
+  width: calc(100% - 2rem);
+  margin: auto;
+  color: var(--ink);
+}
+.species-modal::backdrop {
+  background: rgba(31, 40, 28, 0.55);
+  backdrop-filter: blur(3px);
+}
+.modal-card {
+  position: relative;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+  padding: 1.75rem 1.6rem 1.6rem;
+  background-image: radial-gradient(circle at 90% -10%, rgba(47,93,58,.08) 0, transparent 45%);
+  animation: rise .28s ease both;
+}
+.modal-close {
+  position: absolute;
+  top: 0.7rem; right: 0.8rem;
+  width: 2.1rem; height: 2.1rem;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .15s;
+}
+.modal-close:hover { background: var(--berry); color: var(--paper); transform: rotate(90deg); }
+
+.modal-eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--moss);
+  margin: 0 0 0.2rem;
+}
+.modal-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--forest-deep);
+  margin: 0 0 0.15rem;
+  line-height: 1.05;
+  padding-right: 2rem;
+}
+.modal-action {
+  font-style: italic;
+  color: var(--berry);
+  font-size: 1.02rem;
+  margin: 0 0 1rem;
+}
+.modal-section { margin-top: 1rem; }
+.modal-section h4 {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bark);
+  margin: 0 0 0.25rem;
+}
+.modal-section p { margin: 0; color: var(--ink-soft); }
+.modal-refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.9rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+.ref-pill {
+  font-size: 0.82rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 0.3rem 0.8rem;
+  color: var(--ink);
+}
+.ref-pill strong { color: var(--forest-deep); }
+.modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--forest);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--moss);
+  padding-bottom: 1px;
+}
+.modal-link:hover { color: var(--berry); border-color: var(--berry); }
+.modal-empty { color: var(--ink-soft); font-style: italic; }
+
+/* ---------------------------------------------------------------- FOOTER */
+.site-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 1.25rem 2rem;
+  text-align: center;
+}
+.site-footer p {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ----------------------------------------------------------- EMPTY STATE */
+.empty-month {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------- MOBILE */
+@media (max-width: 560px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .places-grid { grid-template-columns: 1fr; }
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .current-month { align-self: flex-end; margin-top: -1.6rem; }
+  .brand-sub { display: none; }
+  .modal-card { padding: 1.5rem 1.2rem 1.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
