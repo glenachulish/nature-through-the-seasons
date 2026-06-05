@@ -42,6 +42,13 @@
   const modalBodyEl  = document.getElementById("modal-body");
   const modalCloseEl = document.getElementById("modal-close");
 
+  /* ---- Info panel ("more info") DOM references ---- */
+  const infoPanelEl     = document.getElementById("info-panel");
+  const infoTitleEl     = document.getElementById("info-panel-title");
+  const infoFallbackEl  = document.getElementById("info-panel-fallback");
+
+  let infoTeardownTimer = null;   // pending close/teardown handle
+
   /* Holds the species objects currently on screen, keyed by a render-time id,
      so the modal can look up full detail without stashing data in the DOM. */
   let currentMonth = null;
@@ -217,10 +224,12 @@
       html += '<div class="modal-refs">' + pills.join("") + '</div>';
     }
 
-    /* External reference link. */
+    /* External reference — opens the in-page "more info" panel rather than a
+       new tab. The panel attempts to embed the live site and falls back to a
+       preview if the site refuses framing. */
     if (s.referenceUrl) {
-      html += '<a class="modal-link" href="' + escapeHtml(s.referenceUrl) +
-              '" target="_blank" rel="noopener noreferrer">Find out more &nearr;</a>';
+      html += '<button type="button" class="modal-link" data-info-open="' +
+              escapeHtml(id) + '">Find out more &nearr;</button>';
     }
 
     /* If nothing but the name exists, say so gracefully. */
@@ -248,6 +257,106 @@
     else modalEl.removeAttribute("open");
   }
 
+  /* ============================================================ INFO PANEL */
+
+  /* Open the slide-over panel for a species. It shows the in-panel preview —
+     the detail we already hold plus an "Open full site in new tab" button.
+     We don't embed the reference site: RSPB, Wildlife Trusts and Woodland
+     Trust all block iframing, and a blocked frame fires a fake "load" event
+     that can't be told apart from a real one, so an in-app embed can't be
+     made reliable. Opening in a new tab is the honest, dependable behaviour. */
+  function openInfoPanel(id) {
+    const s = speciesIndex[id];
+    if (!s || !s.referenceUrl) return;
+
+    /* Cancel a pending close-teardown so a quick re-open isn't clobbered. */
+    clearTimeout(infoTeardownTimer);
+
+    infoTitleEl.textContent = s.name;
+
+    /* Close the species modal underneath so they don't stack. */
+    closeModal();
+
+    /* Show the preview. */
+    showInfoPreview(s);
+
+    /* Reveal the panel. */
+    infoPanelEl.hidden = false;
+    infoPanelEl.setAttribute("aria-hidden", "false");
+    /* Force a reflow so the CSS transition runs from the hidden state. */
+    void infoPanelEl.offsetWidth;
+    infoPanelEl.classList.add("open");
+    document.body.classList.add("info-open");
+  }
+
+  /* The in-panel preview: species detail we already hold, plus a clear
+     "open in new tab" button. */
+  function showInfoPreview(s) {
+    let html = "";
+
+    if (s.action) {
+      html += '<p class="info-fallback-action">' + escapeHtml(s.action) + '</p>';
+    }
+    if (s.folklore) {
+      html += '<div class="info-fallback-section"><h4>Folklore &amp; Notes</h4><p>' +
+              escapeHtml(s.folklore) + '</p></div>';
+    }
+    if (s.culinaryUses) {
+      html += '<div class="info-fallback-section"><h4>Culinary Uses</h4><p>' +
+              escapeHtml(s.culinaryUses) + '</p></div>';
+    }
+    if (s.medicalUses) {
+      html += '<div class="info-fallback-section"><h4>Medicinal Uses</h4><p>' +
+              escapeHtml(s.medicalUses) + '</p></div>';
+    }
+
+    const pills = [];
+    if (s.collinsPage) pills.push('<span class="ref-pill"><strong>Collins Bird Guide</strong> &middot; p.' + escapeHtml(s.collinsPage) + '</span>');
+    if (s.bakerPage)   pills.push('<span class="ref-pill"><strong>Baker</strong> &middot; p.' + escapeHtml(s.bakerPage) + '</span>');
+    if (pills.length) {
+      html += '<div class="modal-refs">' + pills.join("") + '</div>';
+    }
+
+    /* Single action: open the reference site in a new tab. These sites
+       (RSPB, Wildlife Trusts, Woodland Trust) block iframe embedding, and a
+       blocked frame fires a fake "load" event that's indistinguishable from a
+       real one — so in-app embedding can't be done reliably. Opening in a new
+       tab is the honest, dependable behaviour. */
+    html += '<div class="info-actions">';
+    html += '<a class="info-fallback-open" href="' + escapeHtml(s.referenceUrl) +
+            '" target="_blank" rel="noopener noreferrer">Open full site in new tab &nearr;</a>';
+    html += '</div>';
+
+    infoFallbackEl.innerHTML = html;
+    infoFallbackEl.hidden = false;
+  }
+
+  function closeInfoPanel() {
+    clearTimeout(infoTeardownTimer);
+    infoPanelEl.classList.remove("open");
+    document.body.classList.remove("info-open");
+    infoPanelEl.setAttribute("aria-hidden", "true");
+
+    /* Wait for the slide-out transition, then fully hide and clear the panel.
+       Guard against a quick re-open: if the panel is open again by the time
+       this runs, do nothing. */
+    const finish = function () {
+      infoPanelEl.removeEventListener("transitionend", finish);
+      clearTimeout(infoTeardownTimer);
+      if (infoPanelEl.classList.contains("open")) return;  // re-opened — leave it
+      infoPanelEl.hidden = true;
+      infoFallbackEl.innerHTML = "";
+      infoFallbackEl.hidden = true;
+    };
+    /* transitionend may not fire if motion is reduced; back it with a timer. */
+    infoPanelEl.addEventListener("transitionend", finish);
+    infoTeardownTimer = setTimeout(finish, 400);
+  }
+
+  function isInfoPanelOpen() {
+    return !infoPanelEl.hidden && infoPanelEl.classList.contains("open");
+  }
+
   /* ----------------------------------------------------- event wiring */
   function wireEvents() {
     /* Month switching — delegated on the nav container. */
@@ -264,6 +373,29 @@
 
     /* Modal close button. */
     modalCloseEl.addEventListener("click", closeModal);
+
+    /* "Find out more" inside the modal opens the info panel (delegated). */
+    modalBodyEl.addEventListener("click", function (e) {
+      const trigger = e.target.closest("[data-info-open]");
+      if (trigger) {
+        e.preventDefault();
+        openInfoPanel(trigger.getAttribute("data-info-open"));
+      }
+    });
+
+    /* Info panel clicks — close (× / backdrop carry data-info-close). */
+    infoPanelEl.addEventListener("click", function (e) {
+      if (e.target.closest("[data-info-close]")) closeInfoPanel();
+    });
+
+    /* Escape closes the info panel (the native <dialog> handles its own
+       Escape; we only need to cover the panel, and close it first if open). */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && isInfoPanelOpen()) {
+        e.preventDefault();
+        closeInfoPanel();
+      }
+    });
 
     /* Close when clicking the backdrop (clicks that land on the dialog
        element itself, outside the inner card). */

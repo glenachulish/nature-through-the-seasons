@@ -64,6 +64,35 @@
     </div>
   </dialog>
 
+  <!-- ====================== "MORE INFO" SLIDE-OVER PANEL ====================== -->
+  <!--
+    Opened from the "Find out more" button in the species modal. Shows an
+    in-panel preview of the detail we already hold, plus an "Open full site in
+    new tab" button. We deliberately don't embed the reference site: RSPB,
+    Wildlife Trusts and Woodland Trust block iframing, and a blocked frame
+    fires a fake "load" event that can't be told apart from a real one, so an
+    in-app embed can't be made reliable. Hidden by default via [hidden] + CSS.
+  -->
+  <div id="info-panel" class="info-panel" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="info-panel-title">
+    <div class="info-panel-backdrop" data-info-close></div>
+    <aside class="info-panel-sheet" role="document">
+      <header class="info-panel-head">
+        <div class="info-panel-heading">
+          <span class="info-panel-eyebrow">More information</span>
+          <h3 class="info-panel-title" id="info-panel-title">—</h3>
+        </div>
+        <button class="info-panel-close" type="button" aria-label="Close panel" data-info-close>&times;</button>
+      </header>
+
+      <div class="info-panel-body">
+        <!-- In-panel preview: species detail + "open full site" button -->
+        <div class="info-panel-fallback" id="info-panel-fallback">
+          <!-- Filled by app.js -->
+        </div>
+      </div>
+    </aside>
+  </div>
+
   <footer class="site-footer">
     <p>Inspired by Nick Baker's <em>British Wildlife: A Month-by-Month Guide</em> and the <em>Collins Bird Guide</em>.</p>
   </footer>

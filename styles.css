@@ -381,6 +381,141 @@ body {
 .modal-link:hover { color: var(--berry); border-color: var(--berry); }
 .modal-empty { color: var(--ink-soft); font-style: italic; }
 
+/* ----------------------------------------------------- "MORE INFO" PANEL */
+/* A slide-over sheet. Hidden via [hidden]; the .open class drives the
+   transition. Mobile-first: full-width sheet, capped on larger screens. */
+.info-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 60;            /* above the modal (z 40) */
+}
+.info-panel[hidden] { display: none; }
+
+.info-panel-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(31, 40, 28, 0.55);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+.info-panel.open .info-panel-backdrop { opacity: 1; }
+
+.info-panel-sheet {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: min(640px, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-left: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  transition: transform .3s cubic-bezier(.22,.61,.36,1);
+}
+.info-panel.open .info-panel-sheet { transform: translateX(0); }
+
+.info-panel-head {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.3rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background-image: radial-gradient(circle at 90% -30%, rgba(47,93,58,.08) 0, transparent 55%);
+}
+.info-panel-eyebrow {
+  display: block;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--moss);
+  margin-bottom: 0.2rem;
+}
+.info-panel-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--forest-deep);
+  margin: 0;
+  line-height: 1.1;
+}
+.info-panel-close {
+  flex-shrink: 0;
+  width: 2.1rem; height: 2.1rem;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .15s;
+}
+.info-panel-close:hover { background: var(--berry); color: var(--paper); transform: rotate(90deg); }
+
+.info-panel-body {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;          /* let the iframe scroll inside, not the sheet */
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panel-fallback {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 1.3rem 1.4rem 2rem;
+}
+.info-fallback-note {
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.info-fallback-action {
+  font-style: italic;
+  color: var(--berry);
+  margin: 0 0 0.8rem;
+}
+.info-fallback-section { margin-top: 1rem; }
+.info-fallback-section h4 {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bark);
+  margin: 0 0 0.25rem;
+}
+.info-fallback-section p { margin: 0; color: var(--ink-soft); }
+.info-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+.info-fallback-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--forest);
+  border-radius: 99px;
+  text-decoration: none;
+  transition: background .15s, transform .15s;
+}
+.info-fallback-open:hover { background: var(--berry); transform: translateY(-1px); }
+
+body.info-open { overflow: hidden; }   /* lock background scroll while open */
+
 /* ---------------------------------------------------------------- FOOTER */
 .site-footer {
   flex-shrink: 0;
@@ -412,6 +547,8 @@ body {
   .current-month { align-self: flex-end; margin-top: -1.6rem; }
   .brand-sub { display: none; }
   .modal-card { padding: 1.5rem 1.2rem 1.3rem; }
+  .info-panel-sheet { width: 100%; border-left: none; }
+  .info-panel-title { font-size: 1.3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
