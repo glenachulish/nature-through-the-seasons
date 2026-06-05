@@ -67,7 +67,24 @@ body {
   justify-content: space-between;
   gap: 1rem;
 }
-.brand { display: flex; align-items: center; gap: 0.7rem; min-width: 0; }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 2px 6px;
+  margin: -2px -6px;   /* keep visual position despite padding */
+  transition: opacity .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.brand:hover { opacity: 0.78; }
+.brand:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+.brand:active { opacity: 0.6; }
 .brand-mark {
   font-size: 1.9rem;
   color: var(--forest);

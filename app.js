@@ -38,6 +38,7 @@
   const navEl        = document.getElementById("month-nav");
   const contentEl    = document.getElementById("app-content");
   const monthLabelEl = document.getElementById("current-month-label");
+  const brandHomeEl  = document.getElementById("brand-home");
   const modalEl      = document.getElementById("species-modal");
   const modalBodyEl  = document.getElementById("modal-body");
   const modalCloseEl = document.getElementById("modal-close");
@@ -359,6 +360,22 @@
 
   /* ----------------------------------------------------- event wiring */
   function wireEvents() {
+    /* Title acts as a "home" control — scroll back to the top, keeping the
+       month the person is viewing. Works on click and on Enter/Space (it's a
+       role="button"). Respects reduced-motion preferences. */
+    function scrollToTop() {
+      const reduce = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    }
+    brandHomeEl.addEventListener("click", scrollToTop);
+    brandHomeEl.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        scrollToTop();
+      }
+    });
+
     /* Month switching — delegated on the nav container. */
     navEl.addEventListener("click", function (e) {
       const btn = e.target.closest(".month-btn");
