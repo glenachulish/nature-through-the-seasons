@@ -1150,13 +1150,13 @@ const seasonData = {
     TopPlaces: [
       { name: "Herefordshire Badger Watch" },
       { name: "Cotswold Badger Watch" },
-      { name: "Ebbor Gorge" },
+      { name: "Ebbor Gorge", url: "https://www.nationaltrust.org.uk/visit/somerset/mendip-hills/things-to-see-and-do-in-the-mendip-hills" },
       { name: "New Forest Badger Watch" },
-      { name: "Kiln Wood, Kent" },
-      { name: "Bradfield Woods, Suffolk" },
-      { name: "Wormley Woods, Hertfordshire" },
-      { name: "Castle Eden Dene, near Hartlepool" },
-      { name: "New Lanark Badger Watch" }
+      { name: "Kiln Wood, Kent", url: "https://www.kentwildlifetrust.org.uk/nature-reserves/kiln-wood" },
+      { name: "Bradfield Woods, Suffolk", url: "https://www.suffolkwildlifetrust.org/bradfieldwoods" },
+      { name: "Wormley Woods, Hertfordshire", url: "https://www.woodlandtrust.org.uk/visiting-woods/woods/wormley-wood-nut-wood/" },
+      { name: "Castle Eden Dene, near Hartlepool", url: "https://www.woodlandtrust.org.uk/visiting-woods/woods/castle-eden-dene-nnr/" },
+      { name: "New Lanark Badger Watch", url: "https://scottishwildlifetrust.org.uk/reserve/falls-of-clyde/" }
     ]
   },
 
@@ -1507,11 +1507,11 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "Rutland Water" },
-      { name: "Highnam Woods" },
-      { name: "Radipole Lake & Lodmoor, Weymouth" },
-      { name: "Beachy Head" },
-      { name: "Blean Woods, Kent" }
+      { name: "Rutland Water", url: "https://www.lrwt.org.uk/rutland-water" },
+      { name: "Highnam Woods", url: "https://www.rspb.org.uk/days-out/reserves/highnam-woods" },
+      { name: "Radipole Lake & Lodmoor, Weymouth", url: "https://www.rspb.org.uk/days-out/reserves/radipole-lake" },
+      { name: "Beachy Head", url: "https://www.southdowns.gov.uk/walks/beachy-head-to-birling-gap/" },
+      { name: "Blean Woods, Kent", url: "https://www.rspb.org.uk/days-out/reserves/blean-woods" }
     ]
   },
   /* -------------------------------------------------------------------- JUNE */
@@ -2123,13 +2123,13 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "Farne Islands" },
-      { name: "Rye House Marsh, Lee Valley" },
-      { name: "Abberton Reservoir, Essex" },
-      { name: "Stodmarsh NR, Canterbury" },
-      { name: "Rye Harbour, Kent" },
-      { name: "Brownsea Island, Poole" },
-      { name: "Lough Neagh" }
+      { name: "Farne Islands", url: "https://www.nationaltrust.org.uk/visit/north-east/farne-islands" },
+      { name: "Rye Meads (formerly Rye House Marsh), Lee Valley", url: "https://www.rspb.org.uk/days-out/reserves/rye-meads" },
+      { name: "Abberton Reservoir, Essex", url: "https://www.essexwt.org.uk/nature-reserves/abberton" },
+      { name: "Stodmarsh NR, Canterbury", url: "https://www.gov.uk/government/publications/kents-national-nature-reserves/kents-national-nature-reserves#stodmarsh" },
+      { name: "Rye Harbour, Kent", url: "https://sussexwildlifetrust.org.uk/visit/rye-harbour" },
+      { name: "Brownsea Island, Poole", url: "https://www.nationaltrust.org.uk/visit/dorset/brownsea-island" },
+      { name: "Lough Neagh", url: "https://discovernorthernireland.com/things-to-do/oxford-island-nature-reserve-p674051" }
     ]
   },
   /* -------------------------------------------------------------------- JULY */
@@ -2578,12 +2578,12 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "New Forest" },
-      { name: "Lizard Peninsula" },
-      { name: "Cannock Chase" },
-      { name: "Ashdown Forest" },
-      { name: "Thursley Heath" },
-      { name: "Studland" }
+      { name: "New Forest", url: "https://www.newforestnpa.gov.uk/discover/natural-beauty/heathland/" },
+      { name: "Lizard Peninsula", url: "https://www.nationaltrust.org.uk/visit/cornwall/lizard-point" },
+      { name: "Cannock Chase", url: "https://www.cannock-chase.co.uk/" },
+      { name: "Ashdown Forest", url: "https://ashdownforest.org/wildlife/" },
+      { name: "Thursley Heath", url: "https://surreyhills.org/places-to-see/thursley-national-nature-reserve/" },
+      { name: "Studland", url: "https://www.nationaltrust.org.uk/visit/dorset/studland-bay" }
     ]
   },
   /* ------------------------------------------------------------------ AUGUST */
@@ -3011,20 +3011,20 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "Isle of Mull" },
-      { name: "The Minch" },
-      { name: "Moray Firth" },
-      { name: "Durlston Head" },
-      { name: "Cornwall" },
-      { name: "Cardigan Bay" },
-      { name: "Isle of Man" },
-      { name: "Bull Point, County Antrim" },
-      { name: "St Cyrus, Grampian (beach)" },
-      { name: "Gibraltar Point, South Humberside (beach)" },
-      { name: "North Norfolk Coast (beach)" },
-      { name: "Exmouth & Dawlish, South Devon (beach)" },
-      { name: "South Gower Coast, South Wales (beach)" },
-      { name: "Ramore Head, County Derry (beach)" }
+      { name: "Isle of Mull", url: "https://whaletrail.org/glengorm-isle-of-mull" },
+      { name: "The Minch", url: "https://whaletrail.org/tiumpan-head-isle-of-lewis" },
+      { name: "Moray Firth", url: "https://uk.whales.org/whales-dolphins/how-we-help/bottlenose-dolphins-moray-firth-scotland/" },
+      { name: "Durlston Head", url: "https://www.durlston.co.uk/sealife" },
+      { name: "Cornwall", url: "https://www.cornwallwildlifetrust.org.uk/what-we-do/our-conservation-work/at-sea" },
+      { name: "Cardigan Bay", url: "https://www.welshwildlife.org/cardigan-bay" },
+      { name: "Isle of Man", url: "https://www.mwt.im/where-see-whales-dolphins-and-sharks" },
+      { name: "Bull Point, County Antrim", url: "https://www.rspb.org.uk/days-out/reserves/rathlin-island" },
+      { name: "St Cyrus, Grampian (beach)", url: "https://www.nature.scot/enjoying-outdoors/visit-our-nature-reserves/st-cyrus-national-nature-reserve" },
+      { name: "Gibraltar Point, South Humberside (beach)", url: "https://www.lincstrust.org.uk/nature-reserves/gibraltar-point-national-nature-reserve" },
+      { name: "North Norfolk Coast (beach)", url: "https://www.holkham.co.uk/visit/holkham-beach-nature-reserve/" },
+      { name: "Exmouth & Dawlish, South Devon (beach)", url: "https://www.teignbridge.gov.uk/sports-and-leisure/parks-and-open-areas/nature-reserves/dawlish-warren-national-nature-reserve/" },
+      { name: "South Gower Coast, South Wales (beach)", url: "https://www.nationaltrust.org.uk/visit/wales/rhosili-and-south-gower-coast" },
+      { name: "Ramore Head, County Derry (beach)", url: "https://www.daera-ni.gov.uk/articles/causeway-coast-aonb" }
     ]
   },
   /* --------------------------------------------------------------- SEPTEMBER */
@@ -3451,16 +3451,16 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "West Light Viewpoint, County Antrim" },
-      { name: "Holyhead, Wales" },
-      { name: "St David's Head, Wales" },
-      { name: "Scilly Isles" },
-      { name: "Isle of Portland, Dorset" },
-      { name: "Beachy Head, East Sussex" },
-      { name: "Cley, Norfolk" },
-      { name: "Snettisham, Norfolk" },
-      { name: "Flamborough Head" },
-      { name: "Spurn Head, Humberside" }
+      { name: "West Light Viewpoint, County Antrim", url: "https://www.rspb.org.uk/days-out/reserves/rathlin-island" },
+      { name: "Holyhead, Wales", url: "https://www.rspb.org.uk/days-out/reserves/south-stack" },
+      { name: "St David's Head, Wales", url: "https://www.pembrokeshirecoast.wales/things-to-do/walking-in-the-park/web-walks/st-davids-head/" },
+      { name: "Scilly Isles", url: "https://www.ios-wildlifetrust.org.uk/" },
+      { name: "Isle of Portland, Dorset", url: "https://www.portlandbirdobs.com/" },
+      { name: "Beachy Head, East Sussex", url: "https://www.southdowns.gov.uk/walks/beachy-head-to-birling-gap/" },
+      { name: "Cley, Norfolk", url: "https://www.norfolkwildlifetrust.org.uk/CleyMarshes" },
+      { name: "Snettisham, Norfolk", url: "https://www.rspb.org.uk/days-out/reserves/snettisham" },
+      { name: "Flamborough Head", url: "https://www.ywt.org.uk/nature-reserves/flamborough-cliffs-nature-reserve" },
+      { name: "Spurn Head, Humberside", url: "https://www.ywt.org.uk/nature-reserves/spurn-national-nature-reserve" }
     ]
   },
   /* ----------------------------------------------------------------- OCTOBER */
@@ -4176,13 +4176,13 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "Glasgow City Centre" },
-      { name: "Forth Bridge" },
-      { name: "Huddersfield Station" },
-      { name: "Poole Harbour" },
-      { name: "Slapton Ley NNR" },
-      { name: "Aberystwyth Pier" },
-      { name: "Leighton Moss" }
+      { name: "Glasgow City Centre", url: "https://www.wildlifetrusts.org/where_to_see_starling_murmurations" },
+      { name: "Forth Bridge", url: "https://www.wildlifetrusts.org/where_to_see_starling_murmurations" },
+      { name: "Huddersfield Station", url: "https://www.wildlifetrusts.org/where_to_see_starling_murmurations" },
+      { name: "Poole Harbour", url: "https://www.wildlifetrusts.org/where_to_see_starling_murmurations" },
+      { name: "Slapton Ley NNR", url: "https://www.field-studies-council.org/locations/slaptonleynnr/" },
+      { name: "Aberystwyth Pier", url: "https://www.wildlifetrusts.org/where_to_see_starling_murmurations" },
+      { name: "Leighton Moss", url: "https://www.rspb.org.uk/days-out/reserves/leighton-moss" }
     ]
   },
   /* ---------------------------------------------------------------- DECEMBER */
@@ -4576,13 +4576,13 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "Ballyronan Marina, Lough Neagh" },
-      { name: "Chew Valley Lakes" },
-      { name: "Staines Reservoir, Surrey" },
-      { name: "Abberton Reservoir, Colchester" },
-      { name: "Grafham Water, Cambridgeshire" },
-      { name: "Fairburn Ings, West Yorkshire" },
-      { name: "The Mere, Ellesmere, Shropshire" }
+      { name: "Ballyronan Marina, Lough Neagh", url: "https://www.midulstercouncil.org/ballyronanmarina" },
+      { name: "Chew Valley Lakes", url: "https://www.avonwildlifetrust.org.uk/nature-reserves/chew-valley-lake" },
+      { name: "Staines Reservoir, Surrey", url: "https://www.birdguides.com/sites/europe/britain-ireland/britain/england/surrey/staines-reservoir/" },
+      { name: "Abberton Reservoir, Colchester", url: "https://www.essexwt.org.uk/nature-reserves/abberton" },
+      { name: "Grafham Water, Cambridgeshire", url: "https://anglianwaterparks.co.uk/grafham-water-park/nature-wildlife" },
+      { name: "Fairburn Ings, West Yorkshire", url: "https://www.rspb.org.uk/days-out/reserves/fairburn-ings" },
+      { name: "The Mere, Ellesmere, Shropshire", url: "https://www.shropshiresgreatoutdoors.co.uk/the-mere-at-ellesmere/" }
     ]
   }
 };
