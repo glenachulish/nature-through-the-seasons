@@ -3,3 +3,8 @@
 .vscode/
 .idea/
 node_modules/
+images-src/
+
+# Raw image sources (this session) and backups
+Photos from Wikimedia Commons/
+data.js.bak
