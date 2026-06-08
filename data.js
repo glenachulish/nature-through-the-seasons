@@ -838,12 +838,12 @@ const seasonData = {
       }
     ],
     TopPlaces: [
-      { name: "Lea & Paget's Woods, near Hereford" },
-      { name: "Wentwood Forest, Gwent" },
-      { name: "Dunsford Wood, Devon" },
-      { name: "West Dean Woods, near Chichester" },
-      { name: "The Daffodil Way, Gloucestershire/Herefordshire border" },
-      { name: "Farndale, Yorkshire" }
+      { name: "Lea & Paget's Woods, near Hereford" , url: "https://www.herefordshirewt.org/nature-reserves/lea-pagets-wood" },
+      { name: "Wentwood Forest, Gwent" , url: "https://naturalresources.wales/days-out/places-to-visit/south-east-wales/wentwood/" },
+      { name: "Dunsford Wood, Devon" , url: "https://www.devonwildlifetrust.org/nature-reserves/dunsford" },
+      { name: "West Dean Woods, near Chichester" , url: "https://sussexwildlifetrust.org.uk/visit/west-dean-woods" },
+      { name: "The Daffodil Way, Gloucestershire/Herefordshire border" , url: "https://www.visitdeanwye.co.uk/explore/nature-and-wildlife/daffodils" },
+      { name: "Farndale, Yorkshire" , url: "https://www.northyorkmoors.org.uk/access-for-all/nature-and-wildlife" }
     ]
   },
 
