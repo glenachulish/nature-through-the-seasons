@@ -143,7 +143,15 @@
         const pin = el("span", "pin");
         pin.textContent = "◈";
         item.appendChild(pin);
-        item.appendChild(el("span", null, place.name));
+        if (place.url) {
+          const link = el("a", "place-link", place.name);
+          link.href = place.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          item.appendChild(link);
+        } else {
+          item.appendChild(el("span", null, place.name));
+        }
         pgrid.appendChild(item);
       });
       section.appendChild(pgrid);
