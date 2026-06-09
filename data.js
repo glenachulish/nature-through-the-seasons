@@ -2604,8 +2604,8 @@ const seasonData = {
         diet: "Fish and squid; baleen species filter small shoaling prey.",
         breeding: "Inshore waters serve as nursery areas for resident dolphins and porpoises.",
         status: "Several species occur regularly in British and Irish waters; all are protected.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/cetaceans.webp",
+        photoCredit: "Photo: Peter Asprey / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Seasonal",
         notes: ""
       },
@@ -2623,8 +2623,8 @@ const seasonData = {
         diet: "Zooplankton, filtered from the water through huge gill rakers.",
         breeding: "Slow-growing and slow to mature; gives birth to live young, though details of British breeding are poorly known.",
         status: "Endangered globally and fully protected in UK waters; the west coast of Scotland is a hotspot.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/basking-shark.webp",
+        photoCredit: "Photo: rossbeane / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Endangered",
         notes: ""
       },
@@ -2642,8 +2642,8 @@ const seasonData = {
         diet: "Fish and squid, often herded cooperatively.",
         breeding: "Single calves born in summer after a long gestation; calves stay with the mother for years.",
         status: "Protected; notable resident groups in Scottish and Welsh waters.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/dolphins.webp",
+        photoCredit: "Photo: Gregory \"Slobirdr\" Smith / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Localised",
         notes: ""
       },
@@ -2661,8 +2661,8 @@ const seasonData = {
         diet: "Small fish such as sandeels, herring and whiting.",
         breeding: "A single calf born in summer.",
         status: "The most frequently seen cetacean in British waters; protected.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/porpoises.webp",
+        photoCredit: "Photo: Ben Phalan / Wikimedia Commons, CC BY 4.0",
         statusShort: "Common",
         notes: ""
       }
@@ -2682,8 +2682,8 @@ const seasonData = {
         diet: "Small fish, especially sandeels, caught by plunge-diving.",
         breeding: "Nests in dense colonies on sand and shingle; one of the earliest terns to arrive in spring.",
         status: "Amber-listed; breeds at a limited number of protected colonies.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sandwich-tern.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Localised",
         notes: ""
       },
@@ -2701,8 +2701,8 @@ const seasonData = {
         diet: "Despite the name, mainly cockles, mussels and worms, prised or hammered open with the strong bill.",
         breeding: "Nests in a scrape on shingle, fields and increasingly rooftops; by August young are on the shore.",
         status: "Amber-listed; common and widespread on coasts and, increasingly, inland.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/oystercatcher.webp",
+        photoCredit: "Photo: Andreas Trepte / Wikimedia Commons, CC BY-SA 2.5",
         statusShort: "Common",
         notes: ""
       },
@@ -2720,8 +2720,8 @@ const seasonData = {
         diet: "Small invertebrates picked from sand and mud in a run-stop-pick fashion.",
         breeding: "Nests in a scrape on shingle and sand, the eggs beautifully camouflaged.",
         status: "Red-listed as a breeding bird, disturbed by beach use; an important passage and winter visitor.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/ringed-plover.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -2739,8 +2739,8 @@ const seasonData = {
         diet: "Small invertebrates snatched from the wet sand at the water's edge.",
         breeding: "Does not breed in Britain; nests on Arctic tundra.",
         status: "A regular and characteristic non-breeding visitor to sandy shores.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sanderling.webp",
+        photoCredit: "Photo: Derek Keats / Wikimedia Commons, CC BY 2.0",
         statusShort: "Winter visitor",
         notes: ""
       }
@@ -2760,8 +2760,8 @@ const seasonData = {
         diet: "Small mammals, lizards and amphibians, killed with venom.",
         breeding: "Gives birth to live young in late summer.",
         status: "Widespread but declining; a priority species. The only venomous British snake.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/adder-jul.webp",
+        photoCredit: "Photo: Thomas Brown / Wikimedia Commons, CC BY 2.0",
         statusShort: "Declining",
         notes: "Safety note: the adder is venomous. Bites are rare and rarely serious but warrant prompt medical attention; never handle one."
       },
@@ -2779,8 +2779,8 @@ const seasonData = {
         diet: "Slugs, worms and other slow-moving invertebrates, making it a gardener's friend.",
         breeding: "Gives birth to live young in late summer.",
         status: "Widespread and protected; common in gardens, allotments and compost heaps.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/slow-worm.webp",
+        photoCredit: "Photo: Holger Krisp / Wikimedia Commons, CC BY 3.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2798,8 +2798,8 @@ const seasonData = {
         diet: "Insects and other invertebrates.",
         breeding: "Lays eggs in warm bare sand in early summer; young hatch in late summer.",
         status: "Rare and strictly protected, confined to sandy heath and dunes.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sand-lizard.webp",
+        photoCredit: "Photo: Andreas Eichler / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Rare",
         notes: ""
       },
@@ -2817,8 +2817,8 @@ const seasonData = {
         diet: "Insects, spiders and other small invertebrates.",
         breeding: "Gives birth to live young in summer.",
         status: "Britain's most widespread reptile.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/common-lizard-aug.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2836,8 +2836,8 @@ const seasonData = {
         diet: "Mainly other reptiles — lizards and small snakes — plus small mammals.",
         breeding: "Gives birth to live young in late summer.",
         status: "Very rare and strictly protected, restricted to heathland in southern England.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/smooth-snake.webp",
+        photoCredit: "Photo: S.A. Antipov / Wikimedia Commons, CC BY 4.0",
         statusShort: "Rare",
         notes: ""
       }
@@ -2857,8 +2857,8 @@ const seasonData = {
         diet: "Swallows sand and mud, digesting the organic matter within it.",
         breeding: "Lives in a U-shaped burrow; the cast is the processed sand ejected at the tail end.",
         status: "Abundant on sandy and muddy shores.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/lugworm.webp",
+        photoCredit: "Photo: Rosser1954 / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Abundant",
         notes: ""
       },
@@ -2876,8 +2876,8 @@ const seasonData = {
         diet: "Omnivorous — scavenging, preying on small animals and taking detritus.",
         breeding: "Many ragworms breed in a single spectacular spawning event, then die.",
         status: "Common on muddy and sandy shores and estuaries.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/ragworm.webp",
+        photoCredit: "Photo: Zeitsprünge / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2914,8 +2914,8 @@ const seasonData = {
         diet: "Filter-feeds on plankton and suspended particles.",
         breeding: "Buries just below the surface of sand and mud; vital food for wading birds.",
         status: "Abundant on sandflats and estuaries; commercially harvested.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/cockle.webp",
+        photoCredit: "Photo: 4028mdk09 / Wikimedia Commons, CC BY-SA 3.0",
         notes: "Foraging caveat: gather wild shellfish only from clean water, observe local byelaws and toxic-algae warnings, and always cook thoroughly."
       },
       {
@@ -2932,8 +2932,8 @@ const seasonData = {
         diet: "Filter-feeds on plankton.",
         breeding: "Lives buried upright in clean sand, retreating downward at speed when disturbed.",
         status: "Common on sandy shores at low water.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/razorshell.webp",
+        photoCredit: "Photo: Tiia Monto / Wikimedia Commons, CC BY-SA 3.0",
         notes: "Foraging caveat: gather wild shellfish only from clean water, observe local byelaws, and cook thoroughly."
       },
       {
@@ -2950,8 +2950,8 @@ const seasonData = {
         diet: "An omnivorous scavenger of small particles and animals.",
         breeding: "Buries in sand by day, emerging to feed; females carry eggs beneath the body.",
         status: "Abundant in shallow sandy water and estuaries.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/common-shrimp.webp",
+        photoCredit: "Photo: Lamiot / Wikimedia Commons, CC BY-SA 4.0",
         notes: ""
       },
       {
@@ -2988,8 +2988,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "A declining plant of sand dunes and shingle; should not be picked or dug.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sea-holly.webp",
+        photoCredit: "Photo: Robert Flogaus-Faust / Wikimedia Commons, CC BY 4.0",
         notes: ""
       },
       {
@@ -3006,8 +3006,9 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common on cliffs, saltmarshes and mountain tops.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/thrift.webp",
+        photoCredit: "Photo: Anne Burgess / Wikimedia Commons, CC BY-SA 2.0",
+        focal: "50% 35%",
         notes: ""
       }
     ],
