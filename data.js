@@ -2149,8 +2149,8 @@ const seasonData = {
         diet: "Small flying insects, especially midges and mosquitoes, caught on the wing using echolocation.",
         breeding: "Females gather in maternity roosts in summer to give birth, often in buildings; usually a single pup.",
         status: "Common and widespread; all British bats are legally protected.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/pipistrelle.webp",
+        photoCredit: "Photo: Dumi / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Common",
         notes: "Note: all British bats and their roosts are protected by law — they must not be disturbed."
       },
@@ -2168,8 +2168,8 @@ const seasonData = {
         diet: "Fish and squid; some species filter-feed on small shoaling prey.",
         breeding: "Calving and nursery behaviour occurs in inshore waters for resident dolphins and porpoises.",
         status: "Several species occur regularly; all are protected. Harbour porpoise and bottlenose dolphin are the most commonly seen.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/cetaceans.webp",
+        photoCredit: "Photo: Peter Asprey / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Seasonal",
         notes: ""
       }
@@ -2189,8 +2189,8 @@ const seasonData = {
         diet: "Small mammals, especially voles and mice; also birds, frogs and large insects.",
         breeding: "Nests early in the year in a tree hole; by summer the fledged young (branchers) are dependent on the adults.",
         status: "Common and widespread woodland owl; amber-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/tawny-owl-jul.webp",
+        photoCredit: "Photo: hedera.baltica / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2208,8 +2208,9 @@ const seasonData = {
         diet: "Small mammals (especially rabbits), birds, earthworms and carrion.",
         breeding: "Bulky tree nest; by July the young are large in the nest or recently fledged.",
         status: "Common and widespread, having recovered strongly; green conservation status.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/buzzard.webp",
+        photoCredit: "Photo: caroline legg / Wikimedia Commons, CC BY 2.0",
+        focal: "50% 20%",
         statusShort: "Common",
         notes: "ACCURACY FLAG: collinsPage shown as 116 here, but project notes record a correction to 106 for the March Buzzard entry. Reconcile against the physical Collins Bird Guide and align both entries."
       },
@@ -2227,8 +2228,8 @@ const seasonData = {
         diet: "Mainly voles, located partly by seeing their ultraviolet urine trails; also small birds and insects.",
         breeding: "Nests on ledges, in old crow nests and in boxes; young fledge in summer.",
         status: "Widespread but declining; amber-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/kestrel.webp",
+        photoCredit: "Photo: Alexis Lours / Wikimedia Commons, CC BY 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -2246,8 +2247,8 @@ const seasonData = {
         diet: "Almost entirely small and medium birds, caught in fast surprise attacks.",
         breeding: "Nests in trees; the young fledge in mid-summer.",
         status: "Common and widespread, recovered from mid-20th-century pesticide declines; green-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sparrowhawk.webp",
+        photoCredit: "Photo: Isiwal / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2265,8 +2266,8 @@ const seasonData = {
         diet: "Insects and spiders gleaned from gorse and heather.",
         breeding: "Nests low in gorse and heather; can raise several broods in a good summer.",
         status: "Scarce and localised; vulnerable to hard winters, which once nearly wiped it out in Britain.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/dartford-warbler.webp",
+        photoCredit: "Photo: El Golli Mohamed / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Scarce",
         notes: ""
       },
@@ -2284,8 +2285,8 @@ const seasonData = {
         diet: "Insects and other invertebrates, often dropped onto from a perch.",
         breeding: "Nests low in scrub and heather; several broods through a long season.",
         status: "Widespread on heath and rough coastal ground; green-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/stonechat.webp",
+        photoCredit: "Photo: Fernando Losada Rodríguez / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2303,8 +2304,8 @@ const seasonData = {
         diet: "Insects and other invertebrates taken from low perches.",
         breeding: "Nests on the ground in rough grassland and young plantations.",
         status: "Declining summer visitor, now red-listed; has retreated to upland and northern areas.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/whinchat.webp",
+        photoCredit: "Photo: El Golli Mohamed / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -2322,8 +2323,8 @@ const seasonData = {
         diet: "Seeds and grain, plus insects in the breeding season.",
         breeding: "Nests low in hedge banks and scrub; several broods, often singing late into the summer.",
         status: "Once abundant, now red-listed after farmland declines.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/yellowhammer-jul.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       }
@@ -2343,8 +2344,8 @@ const seasonData = {
         diet: "Small mammals, lizards and amphibians, killed with venom.",
         breeding: "Gives birth to live young in late summer rather than laying eggs.",
         status: "Widespread but declining; a priority species. The only venomous British snake.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/adder-jul.webp",
+        photoCredit: "Photo: Thomas Brown / Wikimedia Commons, CC BY 2.0",
         statusShort: "Declining",
         notes: "Safety note: the adder is venomous. Bites are rare and rarely serious but always warrant prompt medical attention; never handle one."
       },
@@ -2362,8 +2363,8 @@ const seasonData = {
         diet: "Insects, spiders and other small invertebrates.",
         breeding: "Unusually, gives birth to live young in summer rather than laying eggs.",
         status: "Britain's most widespread reptile, found across heath, moor, grassland and coast.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/common-lizard-jul.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2381,8 +2382,8 @@ const seasonData = {
         diet: "Mainly amphibians and fish, hunted in and around water.",
         breeding: "The only British snake that lays eggs, often in compost and manure heaps where the warmth aids incubation.",
         status: "Widespread in England and Wales near water; harmless and non-venomous.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/grass-snake.webp",
+        photoCredit: "Photo: Benny Trapp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       }
@@ -2402,8 +2403,8 @@ const seasonData = {
         diet: "Nectar and pollen from a wide range of flowers.",
         breeding: "A single queen heads a colony of tens of thousands; new queens and swarms are produced in summer.",
         status: "Both managed and feral colonies occur; vital pollinators.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/honey-bee.webp",
+        photoCredit: "Photo: williami5 / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2421,8 +2422,8 @@ const seasonData = {
         diet: "Nectar and pollen; important pollinators of many wildflowers and crops.",
         breeding: "Annual colonies founded each spring by a lone queen; new queens and males appear in summer.",
         status: "Around two dozen British species; several are declining and some have been lost.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/bumblebee.webp",
+        photoCredit: "Photo: Vad 7 / Wikimedia Commons, CC BY 3.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2440,8 +2441,8 @@ const seasonData = {
         diet: "Adults take nectar; provisions for the young are pollen (bees) or paralysed prey (hunting wasps).",
         breeding: "Each female stocks individual cells in burrows, hollow stems or 'bee hotels'; no worker caste.",
         status: "A large and varied group, many under-recorded; important pollinators.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/solitary-bee.webp",
+        photoCredit: "Photo: bemma / Wikimedia Commons, CC BY 4.0",
         statusShort: "Varied",
         notes: ""
       },
@@ -2459,8 +2460,8 @@ const seasonData = {
         diet: "Adults shun flowers, feeding instead on honeydew, sap, dung and carrion; caterpillars eat sallow.",
         breeding: "One generation, flying high around 'master' oak trees in mature woodland in July.",
         status: "Localised in southern English woodland; elusive and much sought-after.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/purple-emperor.webp",
+        photoCredit: "Photo: Muséum de Toulouse / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Localised",
         notes: ""
       },
@@ -2478,8 +2479,8 @@ const seasonData = {
         diet: "Adults feed mainly on honeydew in the treetops; caterpillars feed on oak.",
         breeding: "One generation, on the wing in July and August around oaks.",
         status: "Widespread wherever oaks grow, but overlooked because it stays high in the canopy.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/purple-hairstreak.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -2497,8 +2498,8 @@ const seasonData = {
         diet: "Adults nectar on bramble; caterpillars feed on honeysuckle in shady woodland.",
         breeding: "One generation, flying in July in mature broadleaved woodland.",
         status: "Localised in southern England; has expanded northwards in recent decades.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/white-admiral.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Localised",
         notes: ""
       }
@@ -2518,8 +2519,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common on wet heaths and bogs, flowering in mid-summer.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/bog-asphodel.webp",
+        photoCredit: "Photo: Joan Simon / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       },
       {
@@ -2536,8 +2537,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Several species form the living surface of healthy bogs and mires; key to carbon storage.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sphagnum.webp",
+        photoCredit: "Photo: Mike Pennington / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       },
       {
@@ -2554,8 +2555,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common on blanket bog and wet moorland, the white tufts conspicuous in summer.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/cotton-grass.webp",
+        photoCredit: "Photo: Mike Pennington / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       },
       {
@@ -2572,8 +2573,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common on heaths, commons and coastal slopes.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/gorse.webp",
+        photoCredit: "Photo: Anne Burgess / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       }
     ],
