@@ -3046,8 +3046,8 @@ const seasonData = {
         diet: "Nuts, acorns, seeds, buds, fungi and occasionally birds' eggs.",
         breeding: "Can breed twice a year; autumn is dominated by frantic food-caching for winter.",
         status: "Abundant and widespread; an invasive non-native that has displaced the red squirrel across most of Britain.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/squirrel.webp",
+        photoCredit: "Photo: Rhododendrites / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Abundant",
         notes: ""
       },
@@ -3065,8 +3065,8 @@ const seasonData = {
         diet: "Insects, worms and other invertebrates, eaten in huge quantities relative to body size.",
         breeding: "Several litters through spring and summer; most adults die by their second autumn.",
         status: "Common and widespread, though seldom seen; the dead shrews found on paths are often left uneaten by cats due to their taste.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/shrew.webp",
+        photoCredit: "Photo: WWalas / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Common",
         notes: ""
       }
@@ -3086,8 +3086,8 @@ const seasonData = {
         diet: "Flying insects taken on the wing.",
         breeding: "May still be feeding late broods in mud nests under eaves into September.",
         status: "Common summer visitor but declining; red-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/house-martin.webp",
+        photoCredit: "Photo: Ken Billington / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -3105,8 +3105,9 @@ const seasonData = {
         diet: "Insects and other invertebrates, plus some seeds and berries.",
         breeding: "Does not normally breed in Britain.",
         status: "A scarce but regular passage migrant, especially along the east coast.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/bluethroat.webp",
+        focal: "50% 55%",
+        photoCredit: "Photo: El Golli Mohamed / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Scarce",
         notes: ""
       },
@@ -3124,8 +3125,8 @@ const seasonData = {
         diet: "Seeds and insects; visits gardens and stubble fields in flocks.",
         breeding: "Breeds widely in spring; by autumn forms feeding flocks, sometimes with bramblings.",
         status: "One of Britain's commonest birds, though affected in places by finch disease.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/chaffinch.webp",
+        photoCredit: "Photo: caroline legg / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: ""
       }
@@ -3145,8 +3146,8 @@ const seasonData = {
         diet: "Insects, worms, slugs and other small invertebrates on land.",
         breeding: "Breeding is over for the year; adults and young move to terrestrial refuges before winter.",
         status: "Three native species; the great crested newt is strictly protected.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/newt.webp",
+        photoCredit: "Photo: Danny S. / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Localised",
         notes: ""
       }
@@ -3166,8 +3167,8 @@ const seasonData = {
         diet: "Grasses and other low plants.",
         breeding: "Eggs are laid in or on the soil in late summer to overwinter; adults die off with the first frosts.",
         status: "Several species common in grassland, heath and downland; at their most obvious in late summer.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/grasshopper.webp",
+        photoCredit: "Photo: Walter Baxter / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3185,8 +3186,8 @@ const seasonData = {
         diet: "Omnivorous — plants, smaller insects and detritus.",
         breeding: "Distinguished from grasshoppers by very long antennae; several species sing on into autumn.",
         status: "Various species in grassland, scrub and bushes; some are expanding northwards.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/cricket.webp",
+        photoCredit: "Photo: Bernard DUPONT / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3204,8 +3205,8 @@ const seasonData = {
         diet: "Small insects and some plant material.",
         breeding: "Adults are most often met with in late summer and autumn.",
         status: "Common in woodland, hedgerow and gardens across much of Britain.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/oak-bush-cricket.webp",
+        photoCredit: "Photo: Ryan Hodnett / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3223,8 +3224,8 @@ const seasonData = {
         diet: "Scavengers and predators of small invertebrates and decaying matter.",
         breeding: "Numbers peak in late summer and autumn; many die back with the cold.",
         status: "Common and widespread, conspicuous on walls and vegetation in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/harvestman.webp",
+        photoCredit: "Photo: Bernard DUPONT / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3242,8 +3243,8 @@ const seasonData = {
         diet: "Adults barely feed; larvae (leatherjackets) eat roots in the soil.",
         breeding: "Adults emerge en masse in late summer and autumn to mate and lay eggs in the soil.",
         status: "Very common; the autumn emergence is an important food for many birds.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/cranefly.webp",
+        photoCredit: "Photo: gailhampshire / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3261,8 +3262,8 @@ const seasonData = {
         diet: "Caterpillars feed on the leaves of many broadleaved trees and shrubs.",
         breeding: "The hairy caterpillar is seen in late summer and autumn before pupating to overwinter.",
         status: "Widespread in woodland, hedgerow and gardens.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/pale-tussock-caterpillar.webp",
+        photoCredit: "Photo: Ivar Leidus / Wikimedia Commons, CC BY-SA 4.0",
         notes: "Caveat: the hairs of tussock-moth caterpillars can irritate skin; look, don't handle."
       },
       {
@@ -3279,8 +3280,8 @@ const seasonData = {
         diet: "Dung, especially of rabbits and sheep, buried for the larvae.",
         breeding: "Pairs excavate deep burrows beneath dung; active into autumn.",
         status: "Locally common on sandy heaths and grassland.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/minotaur-beetle.webp",
+        photoCredit: "Photo: Ben Sale / Wikimedia Commons, CC BY 2.0",
         statusShort: "Localised",
         notes: ""
       },
@@ -3298,8 +3299,8 @@ const seasonData = {
         diet: "Dung, buried in tunnels beneath the pat.",
         breeding: "Excavates burrows under dung to provision the larvae; active in autumn.",
         status: "Common and widespread in pasture, heath and woodland.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/dor-beetle.webp",
+        photoCredit: "Photo: Lairich Rig / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3317,8 +3318,8 @@ const seasonData = {
         diet: "Adults feed on honeydew and bramble nectar; caterpillars feed on blackthorn.",
         breeding: "A single late generation; the white eggs overwinter on blackthorn twigs and are easier to find than the adults.",
         status: "Declining and elusive; a priority species, vulnerable to hedge-flailing that removes its eggs.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/brown-hairstreak.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -3336,8 +3337,8 @@ const seasonData = {
         diet: "Adults take nectar, hovering like a hummingbird, especially at tobacco and other long-tubed flowers.",
         breeding: "Does not reliably survive the British winter; chiefly an immigrant.",
         status: "A scarce but regular migrant, more numerous in some years than others.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/convolvulus-hawk-moth.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Migrant",
         notes: ""
       }
@@ -3357,8 +3358,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common in hedges and scrub in much of England, scarcer elsewhere.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/white-bryony.webp",
+        photoCredit: "Photo: AnemoneProjectors / Wikimedia Commons, CC BY-SA 2.0",
         notes: "TOXICITY WARNING: white bryony is poisonous in all parts, the root and berries especially. Do not eat; handle with care."
       },
       {
@@ -3375,8 +3376,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common in hedges, woods and waste ground.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/woody-nightshade.webp",
+        photoCredit: "Photo: Anne Burgess / Wikimedia Commons, CC BY-SA 2.0",
         notes: "TOXICITY WARNING: woody nightshade (bittersweet) is poisonous; the attractive red berries are toxic. Do not eat."
       },
       {
@@ -3393,8 +3394,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "The dog rose and its relatives are common throughout hedges and scrub.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/rosehip.webp",
+        photoCredit: "Photo: Trish Steel / Wikimedia Commons, CC BY-SA 2.0",
         notes: "Foraging caveat: remove and discard the internal seeds and hairs (an irritant) before use."
       },
       {
@@ -3411,8 +3412,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common, especially in upland and northern woods; berries ripen in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/rowan.webp",
+        photoCredit: "Photo: W.carter / Wikimedia Commons, CC BY-SA 4.0",
         notes: "Foraging caveat: rowan berries should be cooked, not eaten raw; raw berries are sharp and can cause stomach upset."
       },
       {
@@ -3429,8 +3430,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Abundant everywhere in hedges, woods and waste ground; the quintessential September forage.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/blackberries.webp",
+        photoCredit: "Photo: Maurice Flesier / Wikimedia Commons, CC BY-SA 4.0",
         notes: ""
       },
       {
@@ -3447,8 +3448,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Wild and naturalised hops are frequent in hedges and scrub, especially in the south.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/hops.webp",
+        photoCredit: "Photo: Chris Light / Wikimedia Commons, CC BY-SA 4.0",
         notes: ""
       }
     ],
@@ -3482,8 +3483,8 @@ const seasonData = {
         diet: "Grasses, heather, shrubs, tree shoots and bark.",
         breeding: "The rut peaks in late September and October; single calves are born the following early summer.",
         status: "Widespread, especially in the Scottish Highlands; also in southern woodland and parks.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/red-deer.webp",
+        photoCredit: "Photo: Peter Trimming / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: ""
       }
@@ -3503,8 +3504,8 @@ const seasonData = {
         diet: "Small mammals, birds, frogs and large insects.",
         breeding: "Territories are re-established and defended vocally in autumn ahead of the next early breeding season.",
         status: "Common and widespread woodland owl; amber-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/tawny-owl-jul.webp",
+        photoCredit: "Photo: hedera.baltica / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       }
@@ -3524,8 +3525,8 @@ const seasonData = {
         diet: "At sea, fish and crustaceans; in rivers, invertebrates.",
         breeding: "Spawns in clean river gravels in late autumn and early winter.",
         status: "Widespread but pressured by barriers, pollution and changes at sea.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sea-trout.webp",
+        photoCredit: "Photo: Björn Söderlund, Sw3dPix / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Localised",
         notes: ""
       },
@@ -3543,8 +3544,8 @@ const seasonData = {
         diet: "At sea, fish and crustaceans; adults eat little once they enter fresh water to spawn.",
         breeding: "Spawns in clean gravel ('redds') in upper rivers in late autumn; many adults die after spawning.",
         status: "Endangered in much of its range; UK stocks have declined sharply.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/salmon.webp",
+        photoCredit: "Photo: Hans-Petter Fjeld / Wikimedia Commons, CC BY-SA 2.5",
         statusShort: "Endangered",
         notes: ""
       }
@@ -3564,8 +3565,8 @@ const seasonData = {
         diet: "Predators of slugs, worms, caterpillars and other invertebrates.",
         breeding: "Many shelter as adults through the winter under bark, logs and stones, found when tidying the garden in autumn.",
         status: "A large family, many species common in gardens, fields and woods.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/ground-beetle.webp",
+        photoCredit: "Photo: Futureman1199 / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3583,8 +3584,8 @@ const seasonData = {
         diet: "Insects and other small invertebrates, caught in webs or by ambush.",
         breeding: "Many species mature in late summer; egg sacs are made in autumn to overwinter.",
         status: "Hundreds of British species; most familiar and obvious in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/spider.webp",
+        photoCredit: "Photo: Isiwal / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3602,8 +3603,8 @@ const seasonData = {
         diet: "Filter-feeds on plankton, combing the water with feathery legs.",
         breeding: "Lives attached to floating objects in the open ocean; cast ashore on flotsam by storms.",
         status: "Oceanic; encountered when storm-driven driftwood strands on western coasts.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/goose-barnacle.webp",
+        photoCredit: "Photo: RamiAubourg / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Occasional",
         notes: ""
       },
@@ -3621,8 +3622,8 @@ const seasonData = {
         diet: "A scavenger and predator of worms and other molluscs.",
         breeding: "Lays masses of egg capsules in autumn and winter; many capsules contain no young, having been eaten by the first to hatch.",
         status: "Common offshore and on lower shores; commercially fished.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/common-whelk.webp",
+        photoCredit: "Photo: Michel Langeveld / Wikimedia Commons, CC BY-SA 4.0",
         notes: "Foraging caveat: gather wild shellfish only from clean water, observe local byelaws, and cook thoroughly."
       },
       {
@@ -3639,8 +3640,8 @@ const seasonData = {
         diet: "A predator and scavenger, burrowing in seabed sediments.",
         breeding: "Lives buried in mud and sand offshore; washed up on beaches by rough weather.",
         status: "Widespread offshore; most often seen stranded after gales.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/sea-mouse.webp",
+        photoCredit: "Photo: MichaelMaggs / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Occasional",
         notes: ""
       }
@@ -3660,8 +3661,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "A vast and varied autumn harvest of fungi appears in woods, fields and verges after damp weather.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/mushrooms.webp",
+        photoCredit: "Photo: Holger Krisp / Wikimedia Commons, CC BY 3.0",
         notes: "EXPERT-ID CAVEAT: many fungi are poisonous and some are deadly, with no reliable folk test to tell edible from toxic. Never eat any wild mushroom without identification by a qualified expert."
       },
       {
@@ -3678,8 +3679,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Galls of many kinds are conspicuous on oak and other plants in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/gall.webp",
+        photoCredit: "Photo: Peter O'Connor / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       },
       {
@@ -3696,8 +3697,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Peak autumn colour usually arrives in October, varying year to year with weather.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/leaves-turning.webp",
+        photoCredit: "Photo: David Hawgood / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       },
       {
@@ -3714,8 +3715,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common in hedges and woods on lime-rich soils, especially in the south.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/field-maple.webp",
+        photoCredit: "Photo: Famartin / Wikimedia Commons, CC BY-SA 4.0",
         notes: ""
       },
       {
@@ -3732,8 +3733,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Two native species (pedunculate and sessile), common and widespread; a keystone for British wildlife.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/oak.webp",
+        photoCredit: "Photo: Robert Flogaus-Faust / Wikimedia Commons, CC BY 4.0",
         notes: ""
       },
       {
@@ -3750,8 +3751,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common in woodland and gardens, emerging from an egg-like 'witch's egg' in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/stinkhorn.webp",
+        photoCredit: "Photo: Holger Krisp / Wikimedia Commons, CC BY 3.0",
         notes: "EXPERT-ID CAVEAT: do not eat wild fungi without identification by a qualified expert."
       },
       {
@@ -3768,8 +3769,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Fairly common on old oaks and chestnuts in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/beefsteak-fungus.webp",
+        photoCredit: "Photo: Stu's Images / Wikimedia Commons, CC BY-SA 3.0",
         notes: "EXPERT-ID CAVEAT: never eat any wild fungus without identification by a qualified expert."
       },
       {
@@ -3786,8 +3787,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Widespread in woodland, associated with the roots of trees, fruiting in autumn.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/penny-bun.webp",
+        photoCredit: "Photo: Holger Krisp / Wikimedia Commons, CC BY 3.0",
         notes: "EXPERT-ID CAVEAT: prized edible but has look-alikes; never eat any wild fungus without identification by a qualified expert."
       },
       {
@@ -3804,8 +3805,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Indicators of ancient, unimproved grassland; many species are declining as such turf is lost.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/waxcap.webp",
+        photoCredit: "Photo: Dick Culbert / Wikimedia Commons, CC BY 2.0",
         notes: "EXPERT-ID CAVEAT: some waxcaps are edible and some are not; never eat any wild fungus without identification by a qualified expert. Better admired and left in place."
       }
     ],
@@ -3842,8 +3843,8 @@ const seasonData = {
         diet: "Cached nuts and acorns, plus buds, bark and fungi.",
         breeding: "Largely inactive in the worst weather, sheltering in a leafy drey, but emerging to feed on milder days.",
         status: "The introduced grey is abundant; the native red survives in strongholds in Scotland, parts of northern England and islands.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/squirrel.webp",
+        photoCredit: "Photo: Rhododendrites / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3861,8 +3862,8 @@ const seasonData = {
         diet: "Grasses and herbs; crops and bark in winter.",
         breeding: "Does not breed now; relies on speed and camouflage in its open-field 'form' through winter.",
         status: "An introduced but long-established species, declined in many areas; a priority species.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/brown-hare.webp",
+        photoCredit: "Photo: caroline legg / Wikimedia Commons, CC BY 2.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -3880,8 +3881,8 @@ const seasonData = {
         diet: "Heather, grasses and other moorland plants.",
         breeding: "Does not breed in winter; survives on the high ground, its coat whitening as the season advances.",
         status: "Native to the Scottish Highlands, with an introduced population in the Peak District; some local declines.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/mountain-hare.webp",
+        photoCredit: "Photo: Bouke ten Cate / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Localised",
         notes: ""
       }
@@ -3901,8 +3902,8 @@ const seasonData = {
         diet: "Tiny insects, spiders and eggs, plus some seeds at feeders in winter.",
         breeding: "Not breeding now; roams in flocks of a dozen or more, often the core of a winter mixed-tit flock.",
         status: "Common and widespread; green-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/long-tailed-tit.webp",
+        photoCredit: "Photo: Alexis Lours / Wikimedia Commons, CC BY 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3920,8 +3921,8 @@ const seasonData = {
         diet: "Small molluscs and other invertebrates probed from estuarine mud.",
         breeding: "Does not breed in Britain.",
         status: "Internationally important wintering numbers; amber-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/knot.webp",
+        photoCredit: "Photo: Stephan Sprinz / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -3939,8 +3940,8 @@ const seasonData = {
         diet: "Small invertebrates probed from mud and sand.",
         breeding: "Scarce upland breeder; the wintering birds are largely from elsewhere.",
         status: "Red-listed as a breeding bird; an abundant and important winter visitor.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/dunlin.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -3958,8 +3959,8 @@ const seasonData = {
         diet: "Earthworms, grubs, grain and scraps, mainly from farmland.",
         breeding: "Not yet breeding, but pairs visit the old rookery through winter; nest-building begins late winter.",
         status: "Common and widespread, though farmland change affects local numbers.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/rook.webp",
+        photoCredit: "Photo: Brian Snelson / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3977,8 +3978,8 @@ const seasonData = {
         diet: "(See the woodpecker species; the holes themselves are nesting cavities.)",
         breeding: "Holes excavated in spring are conspicuous once leaves fall; an important resource for hole-nesting wildlife.",
         status: "Great spotted and green woodpeckers are common and increasing; the lesser spotted is scarce and declining.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/woodpecker.webp",
+        photoCredit: "Photo: Gerry Zambonini / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -3996,8 +3997,8 @@ const seasonData = {
         diet: "Berries (especially hawthorn) and windfall fruit, plus invertebrates in fields.",
         breeding: "Does not normally breed in Britain.",
         status: "An abundant and characteristic winter visitor; red-listed as a (very rare) breeder.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/fieldfare.webp",
+        photoCredit: "Photo: Walter Baxter / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -4015,8 +4016,8 @@ const seasonData = {
         diet: "Berries and windfall fruit, plus worms and insects in mild spells.",
         breeding: "Does not normally breed in Britain.",
         status: "An abundant winter visitor; red-listed as an extremely rare breeder.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/redwing.webp",
+        photoCredit: "Photo: Mike Pennington / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -4034,8 +4035,8 @@ const seasonData = {
         diet: "Small seeds, especially of thistles, teasels and (at feeders) nyjer and sunflower hearts.",
         breeding: "Not breeding now; gathers in charms to feed through winter.",
         status: "Common and increasing, helped by garden feeding; green-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/goldfinch.webp",
+        photoCredit: "Photo: מינוזיג - MinoZig / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4053,8 +4054,8 @@ const seasonData = {
         diet: "Insects, especially leatherjackets, plus fruit, seeds and scraps.",
         breeding: "Not breeding now; gathers in immense communal roosts that produce the murmurations.",
         status: "Red-listed despite the winter spectacle, after a major long-term breeding decline.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/starling.webp",
+        photoCredit: "Photo: Rhododendrites / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       }
@@ -4074,8 +4075,8 @@ const seasonData = {
         diet: "Eats little once in fresh water to spawn.",
         breeding: "Spawns in clean river gravel in late autumn and early winter; many adults die after spawning.",
         status: "Endangered in much of its range; UK stocks have declined sharply.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/salmon.webp",
+        photoCredit: "Photo: Hans-Petter Fjeld / Wikimedia Commons, CC BY-SA 2.5",
         statusShort: "Endangered",
         notes: ""
       }
@@ -4095,8 +4096,8 @@ const seasonData = {
         diet: "Aphids and other small insects (when active); they do not feed while overwintering.",
         breeding: "Not breeding now; adults cluster in sheltered spots to pass the winter dormant.",
         status: "Many native species, now joined by the invasive harlequin ladybird, which preys on and competes with them.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/ladybirds.webp",
+        photoCredit: "Photo: Dr Mary Gillham Archive Project / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4114,8 +4115,8 @@ const seasonData = {
         diet: "(The pupa does not feed; the caterpillar fed earlier in the year.)",
         breeding: "The overwintering pupa is the dormant stage between caterpillar and adult moth.",
         status: "A very common but hidden feature of the winter garden and woodland floor.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/moth-pupae.webp",
+        photoCredit: "Photo: Dinesh Valke / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4133,8 +4134,8 @@ const seasonData = {
         diet: "Adults take nectar, late-flowering ivy and the juice of fallen, fermenting fruit; caterpillars feed on nettles.",
         breeding: "Late individuals may try to overwinter as adults in sheltered spots, with mixed success.",
         status: "Common and increasing, helped by milder winters.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/red-admiral.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       }
@@ -4154,8 +4155,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Local on mortared walls and limestone, commoner in the wetter west.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/rusty-back-fern.webp",
+        photoCredit: "Photo: Bernard DUPONT / Wikimedia Commons, CC BY-SA 2.0",
         notes: ""
       },
       {
@@ -4172,8 +4173,9 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Common in shady, damp places — woods, banks and walls — and evergreen through winter.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/harts-tongue-fern.webp",
+        focal: "50% 45%",
+        photoCredit: "Photo: NasserHalaweh / Wikimedia Commons, CC BY-SA 4.0",
         notes: ""
       }
     ],
@@ -4204,8 +4206,8 @@ const seasonData = {
         diet: "Seeds, nuts, buds and some invertebrates.",
         breeding: "Not breeding now; active through winter, often entering outbuildings and houses.",
         status: "Local, mainly in southern and western England and the Welsh borders.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/yellow-necked-mouse.webp",
+        photoCredit: "Photo: James Lindsey at Ecology of Commanster / Wikimedia Commons, CC BY-SA 2.5",
         statusShort: "Localised",
         notes: ""
       },
@@ -4223,8 +4225,8 @@ const seasonData = {
         diet: "Small mammals, birds, earthworms, fruit and scraps; an adaptable omnivore.",
         breeding: "The winter mating season; cubs are born in spring.",
         status: "Common and widespread in countryside and towns.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/fox.webp",
+        photoCredit: "Photo: xulescu_g / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4242,8 +4244,8 @@ const seasonData = {
         diet: "Seeds, fruit, nuts, buds and some insects.",
         breeding: "Not breeding now; remains active through winter, sheltering in burrows and runs.",
         status: "Common and widespread in woods, hedges and gardens.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/bank-vole.webp",
+        photoCredit: "Photo: AnemoneProjectors / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       }
@@ -4263,8 +4265,8 @@ const seasonData = {
         diet: "Seeds and grain in winter; insects in the breeding season.",
         breeding: "Not breeding now; forms winter feeding flocks, often with finches and sparrows.",
         status: "Reed bunting and (especially) corn bunting have declined on farmland; corn bunting is red-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/reed-bunting.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Mixed",
         notes: ""
       },
@@ -4282,8 +4284,8 @@ const seasonData = {
         diet: "Seeds and grain in winter; insects in summer.",
         breeding: "Not breeding now; gathers in winter flocks on farmland.",
         status: "Red-listed after steep farmland declines.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/yellowhammer-jul.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -4301,8 +4303,8 @@ const seasonData = {
         diet: "Berries and windfall fruit, plus worms and insects in milder spells.",
         breeding: "Does not normally breed in Britain.",
         status: "An abundant winter visitor; red-listed as an extremely rare breeder.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/redwing.webp",
+        photoCredit: "Photo: Mike Pennington / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -4320,8 +4322,8 @@ const seasonData = {
         diet: "Berries (especially hawthorn) and windfall fruit, plus invertebrates.",
         breeding: "Does not normally breed in Britain.",
         status: "An abundant and characteristic winter visitor; red-listed as a very rare breeder.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/fieldfare.webp",
+        photoCredit: "Photo: Walter Baxter / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -4339,8 +4341,9 @@ const seasonData = {
         diet: "Insects and spiders teased from bark with the fine, down-curved bill.",
         breeding: "Not breeding now; may join roaming winter tit flocks.",
         status: "Common and widespread in woodland; green-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/treecreeper.webp",
+        focal: "50% 40%",
+        photoCredit: "Photo: Ekytza / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4358,8 +4361,8 @@ const seasonData = {
         diet: "Worms, shellfish and crabs probed from estuarine mud.",
         breeding: "Not breeding now; winters in flocks on estuaries and farmland.",
         status: "Red-listed and of serious conservation concern after major breeding declines.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/curlew.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -4377,8 +4380,8 @@ const seasonData = {
         diet: "Invertebrates probed and picked from mud and shallow water.",
         breeding: "Not breeding now; winters on estuaries, saltmarsh and coast.",
         status: "Amber-listed; breeding numbers have declined with loss of wet grassland.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/redshank.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Declining",
         notes: ""
       },
@@ -4396,8 +4399,8 @@ const seasonData = {
         diet: "Worms, molluscs and crustaceans taken from estuarine mud.",
         breeding: "Does not breed in Britain.",
         status: "A regular and internationally important winter visitor; amber-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/grey-plover.webp",
+        photoCredit: "Photo: Grendelkhan / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Winter visitor",
         notes: ""
       },
@@ -4415,8 +4418,8 @@ const seasonData = {
         diet: "Mussels and other shellfish, swallowed whole and crushed in the gizzard.",
         breeding: "Not breeding now; rafts of birds winter in inshore coastal waters.",
         status: "A common sea duck of northern coasts; amber-listed.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/eider.webp",
+        photoCredit: "Photo: Iain Lees / Wikimedia Commons, CC BY-SA 2.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4434,8 +4437,8 @@ const seasonData = {
         diet: "Small snails, shellfish and invertebrates sieved from estuarine mud.",
         breeding: "Not breeding now; winters in numbers on estuaries and mudflats.",
         status: "Widespread and amber-listed; characteristic of coastal mud.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/shelduck.webp",
+        photoCredit: "Photo: Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       }
@@ -4456,8 +4459,8 @@ const seasonData = {
         diet: "Swallows sand and mud, digesting the organic matter within.",
         breeding: "Lives year-round in a U-shaped burrow; the cast is processed sand ejected at the surface.",
         status: "Abundant on sandy and muddy shores.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/lugworm.webp",
+        photoCredit: "Photo: Rosser1954 / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Abundant",
         notes: ""
       },
@@ -4475,8 +4478,8 @@ const seasonData = {
         diet: "Adults take nectar; caterpillars feed on nettles.",
         breeding: "Overwinters as a dormant adult, emerging to breed in spring.",
         status: "Common and widespread, though numbers fluctuate.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/tortoiseshell.webp",
+        photoCredit: "Photo: Jörg Hempel / Wikimedia Commons, CC BY-SA 3.0 DE",
         statusShort: "Common",
         notes: ""
       },
@@ -4494,8 +4497,8 @@ const seasonData = {
         diet: "Adults take nectar; caterpillars feed on nettles.",
         breeding: "Overwinters as a dormant adult, emerging on the first warm days of spring.",
         status: "Common and widespread.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/peacock-butterfly.webp",
+        photoCredit: "Photo: Korall / Wikimedia Commons, CC BY-SA 3.0",
         statusShort: "Common",
         notes: ""
       },
@@ -4513,8 +4516,8 @@ const seasonData = {
         diet: "(Dormant; does not feed over winter.)",
         breeding: "The hibernating queen will found a brand-new colony alone in spring.",
         status: "Common; each surviving queen is the seed of next year's nest.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/queen-wasp.webp",
+        photoCredit: "Photo: gailhampshire / Wikimedia Commons, CC BY 2.0",
         statusShort: "Common",
         notes: "Note: a dormant queen wasp can sting if handled or warmed; leave it undisturbed."
       },
@@ -4532,8 +4535,8 @@ const seasonData = {
         diet: "A predator of small invertebrates, subduing prey with venomous claws.",
         breeding: "Active under cover through winter; turned up when shifting logs and stones.",
         status: "Many species, common in soil, leaf litter and under stones.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/centipede.webp",
+        photoCredit: "Photo: Alexis / Wikimedia Commons, CC BY 4.0",
         statusShort: "Common",
         notes: "Note: the largest British centipedes can give a small nip if handled; harmless but best left alone."
       },
@@ -4551,8 +4554,8 @@ const seasonData = {
         diet: "Aquatic insects, tadpoles and even small fish, ambushed underwater.",
         breeding: "Spends the winter as a growing nymph in ponds and streams, emerging to transform into a flying adult in warmer months.",
         status: "Common in well-vegetated ponds, lakes and slow rivers.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/dragonfly-nymph.webp",
+        photoCredit: "Photo: Ian Alexander / Wikimedia Commons, CC BY-SA 4.0",
         statusShort: "Common",
         notes: ""
       }
@@ -4572,8 +4575,8 @@ const seasonData = {
         diet: "",
         breeding: "",
         status: "Winter-fruiting fungi and a wealth of lichens are conspicuous once the leaves are gone.",
-        photo: "",
-        photoCredit: "",
+        photo: "images/lichen-dec.webp",
+        photoCredit: "Photo: Accuruss / Wikimedia Commons, CC BY-SA 3.0",
         notes: "EXPERT-ID CAVEAT: never eat any wild fungus without identification by a qualified expert. Lichens are best simply observed."
       }
     ],
