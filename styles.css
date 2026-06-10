@@ -474,3 +474,59 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ----------------------------------------------------- LEARN MORE / REFERENCES */
+.learn-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0 1rem;
+}
+.learn-more-btn {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--forest);
+  border: 1px solid var(--forest-deep);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1.6rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.learn-more-btn:hover { background: var(--forest-deep); }
+.learn-more-btn:active { transform: translateY(1px); }
+.ref-group { margin-top: 1.4rem; }
+.ref-group:first-of-type { margin-top: 0.5rem; }
+.ref-group-title {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--forest-deep);
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+}
+.ref-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.ref-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.ref-link:hover {
+  border-color: var(--forest);
+  color: var(--ink);
+}
+.ref-link .pin { color: var(--berry); flex: 0 0 auto; line-height: 1.4; }

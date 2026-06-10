@@ -55,6 +55,25 @@
     return node;
   }
 
+  /* Detect whether we're running as an installed / home-screen app (PWA in
+     "standalone" display mode, or iOS Safari's navigator.standalone). When we
+     are, opening links in the SAME tab means the phone's back gesture returns
+     to the app — the natural "cancel" — instead of stranding the user in a new
+     tab they can't easily close. On a normal desktop browser we keep new tabs
+     so the app stays open in its own tab. */
+  function isStandalone() {
+    try {
+      return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+             window.navigator.standalone === true;
+    } catch (e) {
+      return false;
+    }
+  }
+  /* "_self" (same tab) when installed; "_blank" (new tab) otherwise. */
+  function linkTarget() {
+    return isStandalone() ? "_self" : "_blank";
+  }
+
   /* Escape user-facing strings before injecting as HTML (defensive — the data
      is ours, but this keeps rendering safe if the dataset ever grows). */
   function escapeHtml(str) {
@@ -146,7 +165,7 @@
         if (place.url) {
           const link = el("a", "place-link", place.name);
           link.href = place.url;
-          link.target = "_blank";
+          link.target = linkTarget();
           link.rel = "noopener noreferrer";
           item.appendChild(link);
         } else {
@@ -162,6 +181,17 @@
       contentEl.appendChild(
         el("p", "empty-month", "No sightings recorded for " + month + " yet.")
       );
+    }
+
+    /* "Learn More" button — opens the shared references view. Shown on every
+       month (the reference list itself is not month-specific). */
+    if (typeof referenceData !== "undefined") {
+      const moreWrap = el("div", "learn-more-wrap");
+      const moreBtn = el("button", "learn-more-btn", "Learn More");
+      moreBtn.type = "button";
+      moreBtn.id = "learn-more-btn";
+      moreWrap.appendChild(moreBtn);
+      contentEl.appendChild(moreWrap);
     }
 
     /* Stagger the section fade-ins for a gentle reveal. */
@@ -266,7 +296,7 @@
     /* External reference link. */
     if (s.referenceUrl) {
       html += '<a class="modal-link" href="' + escapeHtml(s.referenceUrl) +
-              '" target="_blank" rel="noopener noreferrer">Find out more &nearr;</a>';
+              '" target="' + linkTarget() + '" rel="noopener noreferrer">Find out more &nearr;</a>';
     }
 
     /* If nothing but the name exists, say so gracefully. */
@@ -296,6 +326,55 @@
     else modalEl.removeAttribute("open");
   }
 
+  /* --------------------------------------------------- references view */
+  /* Display labels + ordering for the reference categories. Mirrors the
+     species categories, plus two cross-cutting ones. */
+  const REFERENCE_CATEGORIES = [
+    ["Mammals", "Mammals"],
+    ["Birds", "Birds"],
+    ["AmphibiansReptilesFish", "Amphibians, Reptiles & Fish"],
+    ["Invertebrates", "Invertebrates"],
+    ["Plants", "Plants & Fungi"],
+    ["SeashoreMarine", "Seashore & Marine"],
+    ["WhereToWatch", "Where to Watch"]
+  ];
+
+  function openReferences() {
+    if (typeof referenceData === "undefined") return;
+
+    let html = "";
+    html += '<p class="modal-eyebrow">Learn More</p>';
+    html += '<h3 class="modal-title">Further Reading &amp; Resources</h3>';
+    html += '<p class="modal-action">Identification guides and trusted sources, by group.</p>';
+
+    REFERENCE_CATEGORIES.forEach(function (pair) {
+      const key = pair[0];
+      const label = pair[1];
+      const list = referenceData[key];
+      if (!Array.isArray(list) || list.length === 0) return;
+
+      html += '<div class="ref-group">';
+      html += '<h4 class="ref-group-title">' + escapeHtml(label) + '</h4>';
+      html += '<div class="ref-list">';
+      list.forEach(function (ref) {
+        if (!ref || !ref.name || !ref.url) return;
+        html += '<a class="ref-link" href="' + escapeHtml(ref.url) +
+                '" target="' + linkTarget() + '" rel="noopener noreferrer">' +
+                '<span class="pin" aria-hidden="true">&#9672;</span>' +
+                '<span>' + escapeHtml(ref.name) + '</span></a>';
+      });
+      html += '</div></div>';
+    });
+
+    modalBodyEl.innerHTML = html;
+
+    if (typeof modalEl.showModal === "function") {
+      modalEl.showModal();
+    } else {
+      modalEl.setAttribute("open", "");
+    }
+  }
+
   /* ----------------------------------------------------- event wiring */
   function wireEvents() {
     /* Month switching — delegated on the nav container. */
@@ -306,6 +385,8 @@
 
     /* Card clicks — delegated on the content container. */
     contentEl.addEventListener("click", function (e) {
+      const moreBtn = e.target.closest(".learn-more-btn");
+      if (moreBtn) { openReferences(); return; }
       const card = e.target.closest(".species-card");
       if (card && card.dataset.id) openModal(card.dataset.id);
     });
