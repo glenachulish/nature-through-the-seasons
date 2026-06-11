@@ -530,3 +530,118 @@ body {
   color: var(--ink);
 }
 .ref-link .pin { color: var(--berry); flex: 0 0 auto; line-height: 1.4; }
+
+/* ----------------------------------------------------- FIELD NOTEBOOK */
+/* Floating action button — persists across month switches (lives on body). */
+.notebook-fab {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--berry);
+  border: 1px solid rgba(33, 40, 31, 0.15);
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.notebook-fab:hover { background: #82301f; }
+.notebook-fab:active { transform: translateY(1px); }
+.notebook-fab-mark { font-size: 1.05rem; line-height: 1; }
+@media (max-width: 560px) {
+  /* On small screens, collapse to a compact pill (icon + short label). */
+  .notebook-fab { padding: 0.6rem 0.9rem; font-size: 0.9rem; }
+}
+
+/* Compose area */
+.nb-compose { margin-top: 0.6rem; }
+.nb-textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.8rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.nb-textarea:focus { outline: 2px solid var(--forest); border-color: var(--forest); }
+.nb-compose-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-top: 0.55rem;
+  flex-wrap: wrap;
+}
+.nb-loc-toggle {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.nb-save-btn {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--forest);
+  border: 1px solid var(--forest-deep);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+}
+.nb-save-btn:hover { background: var(--forest-deep); }
+.nb-status { min-height: 1.1em; margin: 0.45rem 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+.nb-status.ok { color: var(--forest); }
+.nb-status.err { color: var(--berry); }
+
+/* Toolbar (copy all / share all) */
+.nb-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.1rem 0 0.4rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+.nb-tool-btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--forest-deep);
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+.nb-tool-btn:hover { border-color: var(--forest); color: var(--ink); }
+.nb-tool-btn.nb-small { font-size: 0.8rem; padding: 0.3rem 0.65rem; }
+.nb-tool-btn.nb-danger { color: var(--berry); }
+.nb-tool-btn.nb-danger:hover { border-color: var(--berry); }
+
+/* Entry list */
+.nb-list { margin-top: 0.4rem; }
+.nb-empty { color: var(--ink-soft); font-size: 0.92rem; margin: 0.6rem 0; }
+.nb-entry {
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  margin-bottom: 0.6rem;
+}
+.nb-entry-meta { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.35rem; }
+.nb-entry-loc { color: var(--forest); text-decoration: underline; }
+.nb-entry-text { margin: 0 0 0.55rem; color: var(--ink); white-space: pre-wrap; word-wrap: break-word; }
+.nb-entry-controls { display: flex; gap: 0.4rem; flex-wrap: wrap; }
