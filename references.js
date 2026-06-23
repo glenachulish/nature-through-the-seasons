@@ -1,25 +1,14 @@
 /* =============================================================================
    Nature Through the Seasons — references.js
 
-   A single, shared "Learn More" reference list, shown the same on every month.
-   Opened via the "Learn More" button beneath Top Places.
+   The shared "Learn More" view: identification links by group, plus
+   Reference Books and Media. Edit with reference-helper.html, then paste
+   the result here (or use the helper's "Save to GitHub" button).
 
-   ---------------------------------------------------------------------------
-   HOW TO EDIT THIS FILE
-   ---------------------------------------------------------------------------
-   You do NOT need to hand-edit the punctuation below. Open the helper page
-   "reference-helper.html" in any web browser, fill in the form (category,
-   link name, web address), click "Add", then "Copy". Paste what it gives you
-   over the whole block below (from "const referenceData" to the closing "};"),
-   save, and deploy.
-
-   If you ever DO edit by hand: each entry is one line of the form
-       { name: "What the link says", url: "https://..." },
-   Keep the quotes, the comma at the end, and don't remove the [ ] or { }.
-   ---------------------------------------------------------------------------
-
-   Categories mirror the app's own sections, plus two extra cross-cutting ones
-   (Seashore & Marine, Where to Watch). Order here is the order shown on screen.
+   Entry shapes:
+     link  sections : { name: "...", url: "https://..." }
+     ReferenceBooks : { title: "...", author: "...", note: "..." }
+     MediaToConsider: { title: "...", type: "...", note: "...", url: "..." }  (url optional)
    ========================================================================== */
 
 const referenceData = {
@@ -69,7 +58,8 @@ const referenceData = {
     { name: "Butterfly Conservation — The lives of moths (PDF)", url: "https://butterfly-conservation.org/sites/default/files/lives_of_moths-factsheet.pdf" },
     { name: "Butterfly Conservation — Farmland habitat ID guide (PDF)", url: "https://butterfly-conservation.org/sites/default/files/habitat-farm-id-guide-web.pdf" },
     { name: "BTO — Common dragonflies (PDF)", url: "https://www.bto.org/sites/default/files/Common%20Dragonflies%20%28Bird%20Table%20121%29.pdf" },
-    { name: "BTO — Common damselflies (PDF)", url: "https://www.bto.org/sites/default/files/Common%20Damselflies%20%28Bird%20Table%20117%29.pdf" }
+    { name: "BTO — Common damselflies (PDF)", url: "https://www.bto.org/sites/default/files/Common%20Damselflies%20%28Bird%20Table%20117%29.pdf" },
+    { name: "Life Cycle of Butterflies and Moths", url: "https://butterfly-conservation.org/discover-and-learn/activities-and-resources/life-cycle-of-butterflies-and-moths" }
   ],
 
   Plants: [
