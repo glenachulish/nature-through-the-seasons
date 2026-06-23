@@ -402,6 +402,27 @@
       html += '</div></div>';
     });
 
+    /* "How to edit" note. Editing is done in the local reference-helper.html
+       tool on the Mac (which holds the GitHub token), NOT on the live site,
+       so this is guidance — deliberately not an in-page editor. */
+    html += '<details class="ref-edit-note">';
+    html += '<summary>Edit these references</summary>';
+    html += '<div class="ref-edit-body">';
+    html += '<p>References are edited from a small tool on the Mac, then ' +
+            'published to every device. They can\u2019t be edited here on the ' +
+            'website.</p>';
+    html += '<ol>';
+    html += '<li>On the Mac, open the <strong>Nature Through the Seasons</strong> ' +
+            'folder and double-click <code>reference-helper.html</code> ' +
+            '(it opens in the browser).</li>';
+    html += '<li>Add, remove or reorder entries using the forms and lists.</li>';
+    html += '<li>In the <strong>Save directly to GitHub</strong> panel, paste the ' +
+            'access token and click commit.</li>';
+    html += '<li>Within about five minutes the changes appear here and on every ' +
+            'device \u2014 no restart needed.</li>';
+    html += '</ol>';
+    html += '</div></details>';
+
     modalBodyEl.innerHTML = html;
 
     if (typeof modalEl.showModal === "function") {
