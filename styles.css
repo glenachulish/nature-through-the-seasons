@@ -645,3 +645,61 @@ body {
 .nb-entry-loc { color: var(--forest); text-decoration: underline; }
 .nb-entry-text { margin: 0 0 0.55rem; color: var(--ink); white-space: pre-wrap; word-wrap: break-word; }
 .nb-entry-controls { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+/* =============================================================================
+   Learn More — Reference Books & Media sections
+   ---------------------------------------------------------------------------
+   New selectors only; reuse the same tokens as .ref-link above. Books render
+   as a non-linked block; media render like a link row with a type badge.
+   ========================================================================== */
+.ref-book {
+  display: block;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.95rem;
+}
+.ref-book-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--forest-deep);
+}
+.ref-book-author { color: var(--ink-soft); }
+.ref-book-note {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+/* Media: shares .ref-link layout; body stacks title / badge / note */
+.ref-media { align-items: flex-start; }
+.ref-media-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.ref-media-title { font-weight: 600; color: var(--ink); }
+.ref-media-type {
+  align-self: flex-start;
+  font-family: var(--display);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--forest-deep);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+}
+.ref-media-note {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+/* Non-linked media (no URL) shouldn't look clickable */
+div.ref-media { cursor: default; }
