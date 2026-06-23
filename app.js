@@ -336,7 +336,9 @@
     ["Invertebrates", "Invertebrates"],
     ["Plants", "Plants & Fungi"],
     ["SeashoreMarine", "Seashore & Marine"],
-    ["WhereToWatch", "Where to Watch"]
+    ["WhereToWatch", "Where to Watch"],
+    ["ReferenceBooks", "Reference Books to Consider"],
+    ["MediaToConsider", "Media to Consider"]
   ];
 
   function openReferences() {
@@ -356,13 +358,47 @@
       html += '<div class="ref-group">';
       html += '<h4 class="ref-group-title">' + escapeHtml(label) + '</h4>';
       html += '<div class="ref-list">';
-      list.forEach(function (ref) {
-        if (!ref || !ref.name || !ref.url) return;
-        html += '<a class="ref-link" href="' + escapeHtml(ref.url) +
-                '" target="' + linkTarget() + '" rel="noopener noreferrer">' +
-                '<span class="pin" aria-hidden="true">&#9672;</span>' +
-                '<span>' + escapeHtml(ref.name) + '</span></a>';
-      });
+
+      if (key === "ReferenceBooks") {
+        /* Books: title (italic) + author, optional note. No link. */
+        list.forEach(function (b) {
+          if (!b || !b.title) return;
+          html += '<div class="ref-book">';
+          html += '<span class="ref-book-title">' + escapeHtml(b.title) + '</span>';
+          if (b.author) html += '<span class="ref-book-author"> — ' + escapeHtml(b.author) + '</span>';
+          if (b.note) html += '<span class="ref-book-note">' + escapeHtml(b.note) + '</span>';
+          html += '</div>';
+        });
+      } else if (key === "MediaToConsider") {
+        /* Media: title + type badge, optional note, optional link. */
+        list.forEach(function (m) {
+          if (!m || !m.title) return;
+          var hasUrl = !!m.url;
+          var openTag = hasUrl
+            ? '<a class="ref-link ref-media" href="' + escapeHtml(m.url) +
+              '" target="' + linkTarget() + '" rel="noopener noreferrer">'
+            : '<div class="ref-media">';
+          var closeTag = hasUrl ? '</a>' : '</div>';
+          html += openTag;
+          if (hasUrl) html += '<span class="pin" aria-hidden="true">&#9672;</span>';
+          html += '<span class="ref-media-body">';
+          html += '<span class="ref-media-title">' + escapeHtml(m.title) + '</span>';
+          if (m.type) html += '<span class="ref-media-type">' + escapeHtml(m.type) + '</span>';
+          if (m.note) html += '<span class="ref-media-note">' + escapeHtml(m.note) + '</span>';
+          html += '</span>';
+          html += closeTag;
+        });
+      } else {
+        /* Standard link list (unchanged). */
+        list.forEach(function (ref) {
+          if (!ref || !ref.name || !ref.url) return;
+          html += '<a class="ref-link" href="' + escapeHtml(ref.url) +
+                  '" target="' + linkTarget() + '" rel="noopener noreferrer">' +
+                  '<span class="pin" aria-hidden="true">&#9672;</span>' +
+                  '<span>' + escapeHtml(ref.name) + '</span></a>';
+        });
+      }
+
       html += '</div></div>';
     });
 

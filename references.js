@@ -88,5 +88,15 @@ const referenceData = {
   WhereToWatch: [
     { name: "The Wildlife Trusts — Where to see seasonal wildlife", url: "https://www.wildlifetrusts.org/visit/where-see-seasonal-wildlife" },
     { name: "The Wildlife Trusts — Find a nature reserve", url: "https://www.wildlifetrusts.org/nature-reserves" }
+  ],
+
+  ReferenceBooks: [
+    { title: "British Wildlife: A Month-by-Month Guide", author: "Nick Baker", note: "The seasonal companion this app is built around — what to look for, month by month." },
+    { title: "Collins Bird Guide", author: "Svensson, Mullarney & Zetterström", note: "The standard field guide for birds of Britain and Europe; superb plates and ID detail." }
+  ],
+
+  MediaToConsider: [
+    { title: "BBC Springwatch & Winterwatch", type: "TV series", note: "Live seasonal natural-history broadcasts following British wildlife. (Replace the URL with the current iPlayer page via the helper.)", url: "https://www.bbc.co.uk/iplayer" },
+    { title: "BBC Sounds — nature & environment", type: "Radio / podcast", note: "British wildlife and environment audio. (Replace with a specific programme URL via the helper.)", url: "https://www.bbc.co.uk/sounds" }
   ]
 };

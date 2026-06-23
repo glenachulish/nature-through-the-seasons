@@ -8,26 +8,38 @@
   ===========================================================================
   REFERENCE HELPER  (local editing tool — NOT part of the live site)
   ===========================================================================
-  Purpose: add, edit, reorder or remove "Learn More" reference links WITHOUT
+  Purpose: add, edit, reorder or remove everything in the "Learn More" view —
+  the link sections, the Reference Books list, and the Media list — WITHOUT
   hand-editing code punctuation.
 
   How to use:
-    1. Open this file in any web browser (double-click it).
-    2. It loads the current references.js automatically (must sit in the same
-       folder). If it can't, it falls back to a built-in copy.
-    3. Add / edit / delete links using the form and the lists below.
-    4. Click "Generate references.js" — the full, valid file text appears.
-    5. Click "Copy", then paste it over your whole references.js, save, deploy.
+    1. Open this file in a web browser ON YOUR MAC (double-click it). Keep it
+       in the same folder as references.js so it can load the current data.
+    2. Add / edit / delete entries using the forms and lists below.
+    3. EITHER:
+         (a) Click "Generate references.js", "Copy", paste over references.js,
+             then commit & push as usual;  OR
+         (b) Use the "Save directly to GitHub" panel to commit the new file to
+             your repo in one click — the Pi's 5-minute cron pull then makes it
+             live on every device.
 
-  This page never saves anything itself. It only produces the text for you to
-  paste. It uses no external libraries.
+  SECURITY NOTE ON THE GITHUB TOKEN
+  ---------------------------------
+  The "Save to GitHub" feature needs a GitHub Personal Access Token (PAT) so it
+  can write to your repo. You paste that token into the field below. It lives
+  ONLY in this page's memory while the tab is open, is sent ONLY to
+  api.github.com over HTTPS, and is NEVER written into references.js or any
+  file. It is not saved or remembered. Because the token grants write access to
+  your repo, only ever use this page locally on your own Mac — never deploy
+  this file to the public site, and never paste a token into a copy of this
+  page served from the internet. Close the tab when done.
   ===========================================================================
 -->
 <style>
   :root {
     --paper:#f4efe2; --paper-deep:#ebe3d2; --ink:#21281f; --ink-soft:#4a5443;
     --forest:#2f5d3a; --forest-deep:#1f3f28; --berry:#9c3b2e; --line:#cfc4ab;
-    --radius:12px; --radius-sm:8px;
+    --gold:#c98a2b; --radius:12px; --radius-sm:8px;
   }
   * { box-sizing: border-box; }
   body {
@@ -35,7 +47,7 @@
     background: var(--paper); color: var(--ink);
     margin: 0; padding: 1.5rem; line-height: 1.5;
   }
-  .wrap { max-width: 820px; margin: 0 auto; }
+  .wrap { max-width: 860px; margin: 0 auto; }
   h1 { color: var(--forest-deep); font-size: 1.5rem; margin: 0 0 0.3rem; }
   .sub { color: var(--ink-soft); margin: 0 0 1.5rem; font-size: 0.95rem; }
   .panel {
@@ -44,11 +56,12 @@
   }
   .panel h2 { font-size: 1.1rem; color: var(--forest-deep); margin: 0 0 0.8rem; }
   label { display: block; font-size: 0.85rem; color: var(--ink-soft); margin: 0.6rem 0 0.2rem; }
-  input, select {
+  input, select, textarea.note-input {
     width: 100%; padding: 0.5rem 0.6rem; font-size: 0.95rem;
     border: 1px solid var(--line); border-radius: var(--radius-sm);
     background: var(--paper); color: var(--ink); font-family: inherit;
   }
+  textarea.note-input { min-height: 3.4rem; resize: vertical; }
   button {
     font-family: inherit; font-size: 0.95rem; font-weight: bold;
     color: var(--paper); background: var(--forest);
@@ -62,136 +75,268 @@
   .cat-block { margin-bottom: 1.3rem; }
   .cat-block h3 { font-size: 1rem; color: var(--forest-deep); margin: 0 0 0.4rem; border-bottom: 1px solid var(--line); padding-bottom: 0.25rem; }
   .ref-row {
-    display: flex; align-items: center; gap: 0.5rem;
+    display: flex; align-items: flex-start; gap: 0.5rem;
     background: var(--paper); border: 1px solid var(--line);
     border-radius: var(--radius-sm); padding: 0.4rem 0.6rem; margin-bottom: 0.35rem;
     font-size: 0.9rem;
   }
   .ref-row .info { flex: 1 1 auto; min-width: 0; }
   .ref-row .nm { font-weight: bold; }
+  .ref-row .meta { color: var(--ink-soft); font-size: 0.82rem; }
   .ref-row .ur { color: var(--ink-soft); font-size: 0.78rem; word-break: break-all; }
   .ref-row .controls { flex: 0 0 auto; display: flex; gap: 0.3rem; }
-  textarea {
+  textarea#out {
     width: 100%; min-height: 320px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-size: 0.82rem; border: 1px solid var(--line); border-radius: var(--radius-sm);
     padding: 0.8rem; background: #fbf8f0; color: var(--ink); white-space: pre;
   }
-  .note { font-size: 0.82rem; color: var(--ink-soft); background: #fff; border-left: 3px solid var(--gold, #c98a2b); padding: 0.5rem 0.8rem; border-radius: 4px; margin-top: 0.6rem; }
+  .note { font-size: 0.82rem; color: var(--ink-soft); background: #fff; border-left: 3px solid var(--gold); padding: 0.5rem 0.8rem; border-radius: 4px; margin-top: 0.6rem; }
+  .warn { border-left-color: var(--berry); }
   .ok { color: var(--forest); font-weight: bold; }
   .err { color: var(--berry); font-weight: bold; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-  @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+  @media (max-width: 560px) { .row2, .row3 { grid-template-columns: 1fr; } }
+  .form-variant { display: none; }
+  .form-variant.active { display: block; }
+  code { background: #fff; padding: 0.05rem 0.3rem; border-radius: 3px; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Reference Helper</h1>
-  <p class="sub">Add, edit or remove “Learn More” links, then generate the file text to paste into <code>references.js</code>. This tool is not part of the live website.</p>
+  <p class="sub">Edit every part of the “Learn More” view — link sections, Reference Books, and Media — then either copy the file or save it straight to GitHub. This page is not part of the live website.</p>
 
+  <!-- ============================ ADD ENTRY ============================ -->
   <div class="panel">
-    <h2>Add a new link</h2>
-    <label for="cat">Category</label>
+    <h2>Add a new entry</h2>
+    <label for="cat">Section</label>
     <select id="cat"></select>
-    <div class="row2">
-      <div>
-        <label for="nm">Link name (what the visitor sees)</label>
-        <input id="nm" type="text" placeholder="e.g. RSPB — Frogs &amp; toads ID guide" />
-      </div>
-      <div>
-        <label for="ur">Web address (URL)</label>
-        <input id="ur" type="text" placeholder="https://..." />
+
+    <!-- Variant A: link sections (name + url) -->
+    <div class="form-variant" id="form-link">
+      <div class="row2">
+        <div>
+          <label for="l_nm">Link name (what the visitor sees)</label>
+          <input id="l_nm" type="text" placeholder="e.g. RSPB — Frogs &amp; toads ID guide" />
+        </div>
+        <div>
+          <label for="l_ur">Web address (URL)</label>
+          <input id="l_ur" type="text" placeholder="https://..." />
+        </div>
       </div>
     </div>
-    <button id="addBtn">Add link</button>
+
+    <!-- Variant B: reference books (title + author + note) -->
+    <div class="form-variant" id="form-book">
+      <div class="row2">
+        <div>
+          <label for="b_ti">Book title</label>
+          <input id="b_ti" type="text" placeholder="e.g. Collins Bird Guide" />
+        </div>
+        <div>
+          <label for="b_au">Author(s)</label>
+          <input id="b_au" type="text" placeholder="e.g. Svensson, Mullarney &amp; Zetterström" />
+        </div>
+      </div>
+      <label for="b_no">Note (optional — one line on why it's worth having)</label>
+      <textarea id="b_no" class="note-input" placeholder="A short recommendation..."></textarea>
+    </div>
+
+    <!-- Variant C: media (title + type + note + optional url) -->
+    <div class="form-variant" id="form-media">
+      <div class="row3">
+        <div>
+          <label for="m_ti">Title</label>
+          <input id="m_ti" type="text" placeholder="e.g. BBC Winterwatch" />
+        </div>
+        <div>
+          <label for="m_ty">Type</label>
+          <input id="m_ty" type="text" placeholder="e.g. TV series, Podcast, Film" />
+        </div>
+        <div>
+          <label for="m_ur">URL (optional)</label>
+          <input id="m_ur" type="text" placeholder="https://... (leave blank for none)" />
+        </div>
+      </div>
+      <label for="m_no">Note (optional)</label>
+      <textarea id="m_no" class="note-input" placeholder="A short description..."></textarea>
+    </div>
+
+    <button id="addBtn">Add entry</button>
     <span id="addMsg"></span>
   </div>
 
+  <!-- ============================ CURRENT LISTS ============================ -->
   <div class="panel">
-    <h2>Current links</h2>
-    <p class="sub" style="margin-bottom:1rem;">Use ▲ ▼ to reorder within a category, or Remove to delete. Changes here update the generated file below.</p>
+    <h2>Current entries</h2>
+    <p class="sub" style="margin-bottom:1rem;">Use ▲ ▼ to reorder within a section, or Remove to delete. Changes here update the generated file below.</p>
     <div id="lists"></div>
   </div>
 
+  <!-- ============================ GENERATE FILE ============================ -->
   <div class="panel">
     <h2>Generate the file</h2>
     <button id="genBtn">Generate references.js</button>
     <button id="copyBtn" class="secondary">Copy to clipboard</button>
     <span id="copyMsg"></span>
-    <p class="note">Paste the text below over the <strong>entire</strong> contents of <code>references.js</code> (replace everything), save the file, then deploy as usual.</p>
+    <p class="note">Paste the text below over the <strong>entire</strong> contents of <code>references.js</code> (replace everything), save, then commit &amp; push.</p>
     <textarea id="out" readonly spellcheck="false"></textarea>
+  </div>
+
+  <!-- ============================ SAVE TO GITHUB ============================ -->
+  <div class="panel">
+    <h2>Save directly to GitHub</h2>
+    <p class="note warn">
+      Your token grants write access to your repository. It is held only in this
+      page while open, sent only to api.github.com, and never written to any
+      file. Only ever use this on your own Mac — never on a copy of this page
+      served from the internet. Close the tab when done.
+    </p>
+    <div class="row2">
+      <div>
+        <label for="gh_repo">Repository</label>
+        <input id="gh_repo" type="text" value="glenachulish/nature-through-the-seasons" />
+      </div>
+      <div>
+        <label for="gh_branch">Branch</label>
+        <input id="gh_branch" type="text" value="main" />
+      </div>
+    </div>
+    <div class="row2">
+      <div>
+        <label for="gh_path">File path in repo</label>
+        <input id="gh_path" type="text" value="references.js" />
+      </div>
+      <div>
+        <label for="gh_token">Personal Access Token (fine-grained, Contents: Read &amp; write)</label>
+        <input id="gh_token" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" />
+      </div>
+    </div>
+    <label for="gh_msg">Commit message</label>
+    <input id="gh_msg" type="text" value="Update Learn More references via helper" />
+    <br />
+    <button id="ghSaveBtn">Commit references.js to GitHub</button>
+    <span id="ghMsg"></span>
+    <p class="note">After a successful commit, the Pi's cron <code>git pull</code> (every 5 minutes) brings it live on all devices. To see it instantly, you can still SSH in and pull manually.</p>
   </div>
 </div>
 
-<!-- Load the real references.js so editing is additive. If it fails (e.g. file
-     opened from a different folder), we fall back to the embedded seed below. -->
+<!-- Load the real references.js so editing is additive. If it fails (file
+     opened from a different folder), we start from empty sections. -->
 <script src="references.js"></script>
 <script>
 (function () {
   "use strict";
 
-  /* Category keys + display labels, in display order. Keep in sync with app.js. */
-  var CATEGORIES = [
-    ["Mammals", "Mammals"],
-    ["Birds", "Birds"],
-    ["AmphibiansReptilesFish", "Amphibians, Reptiles & Fish"],
-    ["Invertebrates", "Invertebrates"],
-    ["Plants", "Plants & Fungi"],
-    ["SeashoreMarine", "Seashore & Marine"],
-    ["WhereToWatch", "Where to Watch"]
+  /* Section definitions: key, label, and kind.
+     kind "link"  -> { name, url }
+     kind "book"  -> { title, author, note }
+     kind "media" -> { title, type, note, url }
+     Keep keys + order in sync with app.js REFERENCE_CATEGORIES. */
+  var SECTIONS = [
+    { key: "Mammals",                 label: "Mammals",                     kind: "link" },
+    { key: "Birds",                   label: "Birds",                       kind: "link" },
+    { key: "AmphibiansReptilesFish",  label: "Amphibians, Reptiles & Fish", kind: "link" },
+    { key: "Invertebrates",           label: "Invertebrates",               kind: "link" },
+    { key: "Plants",                  label: "Plants & Fungi",              kind: "link" },
+    { key: "SeashoreMarine",          label: "Seashore & Marine",           kind: "link" },
+    { key: "WhereToWatch",            label: "Where to Watch",              kind: "link" },
+    { key: "ReferenceBooks",          label: "Reference Books to Consider", kind: "book" },
+    { key: "MediaToConsider",         label: "Media to Consider",           kind: "media" }
   ];
 
-  /* Working copy of the data. Prefer the loaded referenceData; else empty. */
+  function kindOf(key) {
+    for (var i = 0; i < SECTIONS.length; i++) if (SECTIONS[i].key === key) return SECTIONS[i].kind;
+    return "link";
+  }
+  function labelFor(key) {
+    for (var i = 0; i < SECTIONS.length; i++) if (SECTIONS[i].key === key) return SECTIONS[i].label;
+    return key;
+  }
+
+  /* Working copy, seeded from the loaded referenceData where present. */
   var data = {};
-  CATEGORIES.forEach(function (c) { data[c[0]] = []; });
+  SECTIONS.forEach(function (s) { data[s.key] = []; });
   if (typeof referenceData !== "undefined" && referenceData) {
-    CATEGORIES.forEach(function (c) {
-      if (Array.isArray(referenceData[c[0]])) {
-        data[c[0]] = referenceData[c[0]].map(function (r) {
-          return { name: String(r.name || ""), url: String(r.url || "") };
-        });
-      }
+    SECTIONS.forEach(function (s) {
+      var arr = referenceData[s.key];
+      if (!Array.isArray(arr)) return;
+      data[s.key] = arr.map(function (r) {
+        if (s.kind === "book") {
+          return { title: String(r.title || ""), author: String(r.author || ""), note: String(r.note || "") };
+        }
+        if (s.kind === "media") {
+          return { title: String(r.title || ""), type: String(r.type || ""), note: String(r.note || ""), url: String(r.url || "") };
+        }
+        return { name: String(r.name || ""), url: String(r.url || "") };
+      });
     });
   }
 
+  /* ---- Section selector + form-variant switching ---- */
   var catSel = document.getElementById("cat");
-  CATEGORIES.forEach(function (c) {
+  SECTIONS.forEach(function (s) {
     var o = document.createElement("option");
-    o.value = c[0]; o.textContent = c[1];
+    o.value = s.key; o.textContent = s.label;
     catSel.appendChild(o);
   });
+
+  var forms = {
+    link:  document.getElementById("form-link"),
+    book:  document.getElementById("form-book"),
+    media: document.getElementById("form-media")
+  };
+  function showFormFor(key) {
+    var k = kindOf(key);
+    Object.keys(forms).forEach(function (f) {
+      forms[f].classList.toggle("active", f === k);
+    });
+  }
+  catSel.addEventListener("change", function () { showFormFor(catSel.value); });
+  showFormFor(catSel.value);
 
   var listsEl = document.getElementById("lists");
   var outEl = document.getElementById("out");
 
-  function labelFor(key) {
-    for (var i = 0; i < CATEGORIES.length; i++) if (CATEGORIES[i][0] === key) return CATEGORIES[i][1];
-    return key;
-  }
-
+  /* ---- Render the current lists ---- */
   function renderLists() {
     listsEl.innerHTML = "";
-    CATEGORIES.forEach(function (c) {
-      var key = c[0];
+    SECTIONS.forEach(function (s) {
+      var key = s.key;
       var block = document.createElement("div");
       block.className = "cat-block";
       var h = document.createElement("h3");
-      h.textContent = c[1] + " (" + data[key].length + ")";
+      h.textContent = s.label + " (" + data[key].length + ")";
       block.appendChild(h);
 
-      data[key].forEach(function (ref, idx) {
+      data[key].forEach(function (item, idx) {
         var row = document.createElement("div");
         row.className = "ref-row";
 
         var info = document.createElement("div");
         info.className = "info";
-        var nm = document.createElement("div"); nm.className = "nm"; nm.textContent = ref.name;
-        var ur = document.createElement("div"); ur.className = "ur"; ur.textContent = ref.url;
-        info.appendChild(nm); info.appendChild(ur);
+
+        if (s.kind === "book") {
+          var bnm = document.createElement("div"); bnm.className = "nm";
+          bnm.textContent = item.title + (item.author ? " — " + item.author : "");
+          info.appendChild(bnm);
+          if (item.note) { var bn = document.createElement("div"); bn.className = "meta"; bn.textContent = item.note; info.appendChild(bn); }
+        } else if (s.kind === "media") {
+          var mnm = document.createElement("div"); mnm.className = "nm";
+          mnm.textContent = item.title + (item.type ? "  ·  " + item.type : "");
+          info.appendChild(mnm);
+          if (item.note) { var mn = document.createElement("div"); mn.className = "meta"; mn.textContent = item.note; info.appendChild(mn); }
+          if (item.url)  { var mu = document.createElement("div"); mu.className = "ur"; mu.textContent = item.url; info.appendChild(mu); }
+        } else {
+          var lnm = document.createElement("div"); lnm.className = "nm"; lnm.textContent = item.name;
+          var lur = document.createElement("div"); lur.className = "ur"; lur.textContent = item.url;
+          info.appendChild(lnm); info.appendChild(lur);
+        }
         row.appendChild(info);
 
         var ctr = document.createElement("div");
         ctr.className = "controls";
-
         var up = document.createElement("button");
         up.className = "tiny"; up.textContent = "▲"; up.title = "Move up";
         up.onclick = function () { move(key, idx, -1); };
@@ -201,7 +346,6 @@
         var del = document.createElement("button");
         del.className = "danger"; del.textContent = "Remove";
         del.onclick = function () { remove(key, idx); };
-
         ctr.appendChild(up); ctr.appendChild(dn); ctr.appendChild(del);
         row.appendChild(ctr);
         block.appendChild(row);
@@ -224,55 +368,94 @@
     renderLists();
   }
 
+  /* ---- Add a new entry (shape depends on section kind) ---- */
   document.getElementById("addBtn").onclick = function () {
     var key = catSel.value;
-    var name = document.getElementById("nm").value.trim();
-    var url = document.getElementById("ur").value.trim();
+    var kind = kindOf(key);
     var msg = document.getElementById("addMsg");
-    if (!name || !url) {
-      msg.className = "err"; msg.textContent = "  Please fill in both fields.";
-      return;
+    msg.textContent = "";
+
+    if (kind === "book") {
+      var bti = document.getElementById("b_ti").value.trim();
+      var bau = document.getElementById("b_au").value.trim();
+      var bno = document.getElementById("b_no").value.trim();
+      if (!bti) { msg.className = "err"; msg.textContent = "  A book title is required."; return; }
+      data[key].push({ title: bti, author: bau, note: bno });
+      document.getElementById("b_ti").value = "";
+      document.getElementById("b_au").value = "";
+      document.getElementById("b_no").value = "";
+    } else if (kind === "media") {
+      var mti = document.getElementById("m_ti").value.trim();
+      var mty = document.getElementById("m_ty").value.trim();
+      var mno = document.getElementById("m_no").value.trim();
+      var mur = document.getElementById("m_ur").value.trim();
+      if (!mti) { msg.className = "err"; msg.textContent = "  A title is required."; return; }
+      if (mur && !/^https?:\/\//i.test(mur)) { msg.className = "err"; msg.textContent = "  URL should start with http:// or https:// (or leave it blank)."; return; }
+      data[key].push({ title: mti, type: mty, note: mno, url: mur });
+      document.getElementById("m_ti").value = "";
+      document.getElementById("m_ty").value = "";
+      document.getElementById("m_no").value = "";
+      document.getElementById("m_ur").value = "";
+    } else {
+      var lnm = document.getElementById("l_nm").value.trim();
+      var lur = document.getElementById("l_ur").value.trim();
+      if (!lnm || !lur) { msg.className = "err"; msg.textContent = "  Please fill in both fields."; return; }
+      if (!/^https?:\/\//i.test(lur)) { msg.className = "err"; msg.textContent = "  URL should start with http:// or https://"; return; }
+      data[key].push({ name: lnm, url: lur });
+      document.getElementById("l_nm").value = "";
+      document.getElementById("l_ur").value = "";
     }
-    if (!/^https?:\/\//i.test(url)) {
-      msg.className = "err"; msg.textContent = "  URL should start with http:// or https://";
-      return;
-    }
-    data[key].push({ name: name, url: url });
-    document.getElementById("nm").value = "";
-    document.getElementById("ur").value = "";
     msg.className = "ok"; msg.textContent = "  Added to " + labelFor(key) + ".";
     renderLists();
   };
 
-  /* Escape a string for safe inclusion inside a double-quoted JS string. */
-  function esc(s) {
-    return String(s).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-  }
+  /* ---- Generate the references.js text ---- */
+  function esc(s) { return String(s).replace(/\\/g, "\\\\").replace(/"/g, '\\"'); }
 
   function generate() {
-    var lines = [];
-    lines.push("/* =============================================================================");
-    lines.push("   Nature Through the Seasons \u2014 references.js");
-    lines.push("");
-    lines.push("   A single, shared \"Learn More\" reference list, shown the same on every month.");
-    lines.push("   Edit with reference-helper.html (recommended), then paste the result here.");
-    lines.push("   ========================================================================== */");
-    lines.push("");
-    lines.push("const referenceData = {");
-    CATEGORIES.forEach(function (c, ci) {
-      var key = c[0];
-      lines.push("  " + key + ": [");
-      data[key].forEach(function (ref, ri) {
-        var comma = (ri < data[key].length - 1) ? "," : "";
-        lines.push('    { name: "' + esc(ref.name) + '", url: "' + esc(ref.url) + '" }' + comma);
+    var L = [];
+    L.push("/* =============================================================================");
+    L.push("   Nature Through the Seasons \u2014 references.js");
+    L.push("");
+    L.push("   The shared \"Learn More\" view: identification links by group, plus");
+    L.push("   Reference Books and Media. Edit with reference-helper.html, then paste");
+    L.push("   the result here (or use the helper's \"Save to GitHub\" button).");
+    L.push("");
+    L.push("   Entry shapes:");
+    L.push("     link  sections : { name: \"...\", url: \"https://...\" }");
+    L.push("     ReferenceBooks : { title: \"...\", author: \"...\", note: \"...\" }");
+    L.push("     MediaToConsider: { title: \"...\", type: \"...\", note: \"...\", url: \"...\" }  (url optional)");
+    L.push("   ========================================================================== */");
+    L.push("");
+    L.push("const referenceData = {");
+
+    SECTIONS.forEach(function (s, si) {
+      var key = s.key;
+      var arr = data[key];
+      L.push("  " + key + ": [");
+      arr.forEach(function (item, ri) {
+        var comma = (ri < arr.length - 1) ? "," : "";
+        var line;
+        if (s.kind === "book") {
+          line = '{ title: "' + esc(item.title) + '", author: "' + esc(item.author) + '", note: "' + esc(item.note) + '" }';
+        } else if (s.kind === "media") {
+          line = '{ title: "' + esc(item.title) + '", type: "' + esc(item.type) + '", note: "' + esc(item.note) + '"';
+          if (item.url) line += ', url: "' + esc(item.url) + '"';
+          line += ' }';
+        } else {
+          line = '{ name: "' + esc(item.name) + '", url: "' + esc(item.url) + '" }';
+        }
+        L.push("    " + line + comma);
       });
-      var blockComma = (ci < CATEGORIES.length - 1) ? "," : "";
-      lines.push("  ]" + blockComma);
-      if (ci < CATEGORIES.length - 1) lines.push("");
+      var blockComma = (si < SECTIONS.length - 1) ? "," : "";
+      L.push("  ]" + blockComma);
+      if (si < SECTIONS.length - 1) L.push("");
     });
-    lines.push("};");
-    lines.push("");
-    outEl.value = lines.join("\n");
+
+    L.push("};");
+    L.push("");
+    outEl.value = L.join("\n");
+    return outEl.value;
   }
 
   document.getElementById("genBtn").onclick = generate;
@@ -280,12 +463,84 @@
     outEl.select();
     var msg = document.getElementById("copyMsg");
     try {
-      var ok = document.execCommand("copy");
-      if (navigator.clipboard) { navigator.clipboard.writeText(outEl.value); }
+      document.execCommand("copy");
+      if (navigator.clipboard) navigator.clipboard.writeText(outEl.value);
       msg.className = "ok"; msg.textContent = "  Copied — now paste over references.js.";
     } catch (e) {
-      msg.className = "err"; msg.textContent = "  Press Ctrl/Cmd+C to copy.";
+      msg.className = "err"; msg.textContent = "  Press Cmd+C to copy.";
     }
+  };
+
+  /* ---- Save directly to GitHub via the Contents API ---- */
+  function b64(str) {
+    /* UTF-8 safe base64 (handles the é, ö, — characters in the data). */
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  document.getElementById("ghSaveBtn").onclick = function () {
+    var msg = document.getElementById("ghMsg");
+    var repo = document.getElementById("gh_repo").value.trim();
+    var branch = document.getElementById("gh_branch").value.trim() || "main";
+    var path = document.getElementById("gh_path").value.trim() || "references.js";
+    var token = document.getElementById("gh_token").value.trim();
+    var commitMsg = document.getElementById("gh_msg").value.trim() || "Update references.js";
+
+    if (!token) { msg.className = "err"; msg.textContent = "  Paste a GitHub token first."; return; }
+    if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) { msg.className = "err"; msg.textContent = "  Repository must look like owner/name."; return; }
+
+    var content = generate();
+    var apiBase = "https://api.github.com/repos/" + repo + "/contents/" + encodeURIComponent(path).replace(/%2F/g, "/");
+    var headers = {
+      "Authorization": "Bearer " + token,
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28"
+    };
+
+    msg.className = ""; msg.textContent = "  Working… fetching current file…";
+
+    /* 1) Get the current file SHA (required to update an existing file). */
+    fetch(apiBase + "?ref=" + encodeURIComponent(branch), { headers: headers })
+      .then(function (r) {
+        if (r.status === 404) return null;            // new file
+        if (r.status === 401) throw new Error("Token rejected (401). Check the token and its Contents: Read & write permission.");
+        if (!r.ok) throw new Error("Could not read file (HTTP " + r.status + ").");
+        return r.json();
+      })
+      .then(function (existing) {
+        var body = {
+          message: commitMsg,
+          content: b64(content),
+          branch: branch
+        };
+        if (existing && existing.sha) body.sha = existing.sha;
+        msg.textContent = "  Working… committing…";
+        return fetch(apiBase, {
+          method: "PUT",
+          headers: headers,
+          body: JSON.stringify(body)
+        });
+      })
+      .then(function (r) {
+        return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
+      })
+      .then(function (res) {
+        if (!res.ok) {
+          throw new Error((res.j && res.j.message) ? res.j.message : ("Commit failed (HTTP " + res.status + ")."));
+        }
+        var url = (res.j && res.j.commit && res.j.commit.html_url) ? res.j.commit.html_url : "";
+        msg.className = "ok";
+        msg.textContent = "  Committed to " + repo + " (" + branch + "). The Pi will pull within ~5 min.";
+        if (url) {
+          msg.textContent += "  ";
+          var a = document.createElement("a");
+          a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "View commit";
+          msg.appendChild(a);
+        }
+      })
+      .catch(function (e) {
+        msg.className = "err";
+        msg.textContent = "  " + e.message;
+      });
   };
 
   renderLists();
