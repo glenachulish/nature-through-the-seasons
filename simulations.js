@@ -28,5 +28,11 @@ var simulationData = [
     title: "Bird Migration",
     blurb: "Follow the migrations of a selection of British birds.",
     theme: "Migration"
+  },
+  {
+    file: "simulations/plant-reproduction.html",
+    title: "Plant Reproduction",
+    blurb: "How flowering plants reproduce — from pollination to seed.",
+    theme: "Botany"
   }
 ];
