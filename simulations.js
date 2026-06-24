@@ -22,5 +22,11 @@ var simulationData = [
     title: "The Changing Start of Spring",
     blurb: "How the arrival of spring across Europe has shifted over time — an interactive film.",
     theme: "Phenology"
+  },
+  {
+    file: "simulations/bird-migration.html",
+    title: "Bird Migration",
+    blurb: "Follow the migrations of a selection of British birds.",
+    theme: "Migration"
   }
 ];
