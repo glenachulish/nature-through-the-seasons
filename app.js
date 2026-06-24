@@ -42,6 +42,16 @@
   const modalBodyEl  = document.getElementById("modal-body");
   const modalCloseEl = document.getElementById("modal-close");
 
+  /* View switcher + simulations. */
+  const viewTabsEl     = document.getElementById("view-tabs");
+  const monthsViewEl   = document.getElementById("view-months");
+  const simsViewEl     = document.getElementById("view-simulations");
+  const simContentEl   = document.getElementById("sim-content");
+  const simOverlayEl   = document.getElementById("sim-overlay");
+  const simOverlayTtl  = document.getElementById("sim-overlay-title");
+  const simOverlayFrm  = document.getElementById("sim-overlay-frame");
+  const simOverlayCls  = document.getElementById("sim-overlay-close");
+
   /* Holds the species objects currently on screen, keyed by a render-time id,
      so the modal can look up full detail without stashing data in the DOM. */
   let currentMonth = null;
@@ -432,8 +442,126 @@
     }
   }
 
-  /* ----------------------------------------------------- event wiring */
+  /* --------------------------------------------------- view switching */
+  /* Two top-level views: "months" (the existing app) and "simulations".
+     The month navigator only makes sense in the months view, so it's hidden
+     in the simulations view. Simulations are rendered lazily on first show. */
+  let simsRendered = false;
+
+  function switchView(view) {
+    const showSims = (view === "simulations");
+
+    monthsViewEl.hidden = showSims;
+    simsViewEl.hidden = !showSims;
+
+    /* The month navigator belongs to the months view only. */
+    if (navEl) navEl.style.display = showSims ? "none" : "";
+
+    /* Tab active/pressed state. */
+    Array.prototype.forEach.call(viewTabsEl.children, function (tab) {
+      const isActive = tab.dataset.view === view;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (showSims && !simsRendered) {
+      renderSimulations();
+      simsRendered = true;
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  /* --------------------------------------------------- simulations list */
+  function renderSimulations() {
+    simContentEl.innerHTML = "";
+
+    const list = (typeof simulationData !== "undefined") ? simulationData : null;
+    if (!Array.isArray(list) || list.length === 0) {
+      simContentEl.appendChild(
+        el("p", "empty-month", "No simulations available yet.")
+      );
+      return;
+    }
+
+    const section = el("section", "category");
+    const head = el("div", "category-head");
+    head.appendChild(el("h2", "category-title", "Simulations"));
+    head.appendChild(el("span", "category-count",
+      list.length + (list.length === 1 ? " simulation" : " simulations")));
+    section.appendChild(head);
+
+    const grid = el("div", "sim-grid");
+    list.forEach(function (sim, i) {
+      if (!sim || !sim.file || !sim.title) return;
+      const card = el("button", "sim-card");
+      card.type = "button";
+      card.dataset.simIndex = i;
+      card.style.animationDelay = (i * 0.04) + "s";
+
+      const glyph = el("span", "sim-glyph", "❧");
+      glyph.setAttribute("aria-hidden", "true");
+      card.appendChild(glyph);
+
+      const body = el("div", "sim-card-body");
+      body.appendChild(el("h3", "sim-card-title", sim.title));
+      if (sim.blurb) body.appendChild(el("p", "sim-card-blurb", sim.blurb));
+      card.appendChild(body);
+
+      card.appendChild(el("span", "sim-card-cta", "Open →"));
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    simContentEl.appendChild(section);
+
+    section.style.animationDelay = "0s";
+  }
+
+  /* --------------------------------------------------- simulation overlay */
+  function openSimulation(index) {
+    const list = (typeof simulationData !== "undefined") ? simulationData : null;
+    const sim = list && list[index];
+    if (!sim || !sim.file) return;
+
+    simOverlayTtl.textContent = sim.title || "Simulation";
+    simOverlayFrm.title = sim.title || "Simulation";
+    simOverlayFrm.src = sim.file;           // relative -> prefix-safe; loads now
+
+    simOverlayEl.hidden = false;
+    simOverlayEl.setAttribute("aria-hidden", "false");
+    document.body.classList.add("sim-open");
+  }
+
+  function closeSimulation() {
+    simOverlayEl.hidden = true;
+    simOverlayEl.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("sim-open");
+    /* Clear src so the bundle stops running and frees memory until reopened. */
+    simOverlayFrm.removeAttribute("src");
+  }
+
+
   function wireEvents() {
+    /* View switching — delegated on the tab bar. */
+    viewTabsEl.addEventListener("click", function (e) {
+      const tab = e.target.closest(".view-tab");
+      if (tab && tab.dataset.view) switchView(tab.dataset.view);
+    });
+
+    /* Simulation card clicks — delegated on the simulations container. */
+    simContentEl.addEventListener("click", function (e) {
+      const card = e.target.closest(".sim-card");
+      if (card && card.dataset.simIndex != null) {
+        openSimulation(parseInt(card.dataset.simIndex, 10));
+      }
+    });
+
+    /* Simulation overlay close (button + Escape). */
+    simOverlayCls.addEventListener("click", closeSimulation);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !simOverlayEl.hidden) closeSimulation();
+    });
+
     /* Month switching — delegated on the nav container. */
     navEl.addEventListener("click", function (e) {
       const btn = e.target.closest(".month-btn");

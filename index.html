@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 
   <!-- Installable web app (home-screen / standalone). Paths relative so they
        resolve under the /nature/ prefix. iOS Safari doesn't fully use the
@@ -52,6 +52,12 @@
       <div class="current-month" id="current-month-label" aria-live="polite">—</div>
     </div>
 
+    <!-- ====================== VIEW SWITCHER (tabs) ====================== -->
+    <nav class="view-tabs" id="view-tabs" aria-label="Choose a view">
+      <button class="view-tab active" type="button" data-view="months" aria-pressed="true">Months</button>
+      <button class="view-tab" type="button" data-view="simulations" aria-pressed="false">Simulations</button>
+    </nav>
+
     <!-- ====================== MONTH NAVIGATOR ====================== -->
     <nav class="month-nav" id="month-nav" aria-label="Select a month">
       <!-- Month buttons are injected by app.js -->
@@ -60,10 +66,40 @@
 
   <!-- ========================== MAIN CONTENT ========================= -->
   <main class="app-main">
-    <div id="app-content" class="app-content">
-      <!-- Category sections and species cards are injected by app.js -->
+    <!-- MONTHS VIEW (existing) -->
+    <div id="view-months" class="app-view">
+      <div id="app-content" class="app-content">
+        <!-- Category sections and species cards are injected by app.js -->
+      </div>
+    </div>
+
+    <!-- SIMULATIONS VIEW -->
+    <div id="view-simulations" class="app-view" hidden>
+      <div id="sim-content" class="app-content">
+        <!-- Simulation cards are injected by app.js -->
+      </div>
     </div>
   </main>
+
+  <!-- ====================== SIMULATION OVERLAY (iframe) ====================== -->
+  <!--
+    A simulation opens here as a full-screen embedded bundle. Each simulation
+    in simulations/ is a self-contained HTML file (its own scripts, styles and
+    fonts inlined), so an iframe gives it total isolation from the host app.
+    The src is set only when opened and cleared on close, so the ~1 MB bundle
+    is never loaded until asked for, and stops running when dismissed.
+  -->
+  <div id="sim-overlay" class="sim-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sim-overlay-title">
+    <header class="sim-overlay-head">
+      <h3 class="sim-overlay-title" id="sim-overlay-title">—</h3>
+      <button class="sim-overlay-close" type="button" id="sim-overlay-close" aria-label="Close simulation">&times;</button>
+    </header>
+    <div class="sim-overlay-frame-wrap">
+      <iframe class="sim-overlay-frame" id="sim-overlay-frame" title="Simulation"
+              referrerpolicy="no-referrer"
+              sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
 
   <!-- ============================ MODAL ============================= -->
   <dialog id="species-modal" class="species-modal">
@@ -111,7 +147,8 @@
   <!-- Scripts: data first, then logic. Both relative. -->
   <script src="data.js?v=1"></script>
   <script src="references.js?v=1"></script>
-  <script src="app.js?v=3"></script>
+  <script src="simulations.js?v=1"></script>
+  <script src="app.js?v=4"></script>
   <script src="notebook.js?v=1"></script>
 </body>
 </html>
